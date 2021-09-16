@@ -12,7 +12,7 @@ public class ABC {
         String srt0 = fruits.listIterator(1).previous();
         String srt1 = fruits.listIterator(1).next();
 
-        System.out.println("Elemento: "+ srt);
+        System.out.println("Element: "+ srt);
         System.out.println("Elemento anterior: "+ srt0);
         System.out.println("Elemento soguiente: "+srt1);
         System.out.println("LinkedList: " + fruits);
