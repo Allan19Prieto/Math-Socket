@@ -15,7 +15,7 @@ public class ABC {
         System.out.println("Element: "+ srt);
         System.out.println("Elemento anterior: "+ srt0);
         System.out.println("Elemento soguiente: "+srt1);
-        System.out.println("Hola");
+        System.out.println("Hola prueba prueba prueba prueba prueba");
         System.out.println("LinkedList: " + fruits);
     }
 }
