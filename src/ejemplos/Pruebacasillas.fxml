@@ -3,10 +3,15 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ejemplos.Pruebacasillas">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="484.0" prefWidth="643.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ejemplos.Pruebacasillas">
     <children>
-        <Button fx:id="button" layoutX="195.0" layoutY="108.0" onAction="#handleButtonAction" text="Jugar" />
-        <Label fx:id="label" layoutX="126" layoutY="120" minHeight="16" minWidth="69" />
+        <Button fx:id="button" layoutX="14.0" layoutY="91.0" onAction="#handleButtonAction" text="Lanzar Dado" />
+        <Label layoutX="109.0" layoutY="95.0" minHeight="16" minWidth="69" text="Muevete" />
+        <Label fx:id="label" layoutX="170.0" layoutY="95.0" minHeight="16" minWidth="69" style="-fx-background-color: Black;" textFill="WHITE" />
+      <Button fx:id="buttonM" layoutX="14.0" layoutY="50.0" onAction="#btn_mostrarTablero" text="Mostar tablero" />
+      <Button fx:id="btn_4x4" layoutX="126.0" layoutY="50.0" mnemonicParsing="false" text="4X4" visible="false" />
+      <Button fx:id="btn_5x5" layoutX="194.0" layoutY="50.0" mnemonicParsing="false" text="5X5" visible="false" />
+      <Button fx:id="btn_6x6" layoutX="262.0" layoutY="50.0" mnemonicParsing="false" text="6X6" visible="false" />
     </children>
 
 </AnchorPane>
