@@ -8,10 +8,16 @@ public class ABC {
     public static int Dado(){
         return (int)(Math.random()*6+1);
     }
+    //Aleatorio para llenar el tablero
+    public static int Ram(){
+        return (int)(Math.random()*15+0);
+    }
 
     public static void main(String[] args) {
         //LKL para el tablero del juego
         LinkedList<String> tablero = new LinkedList<>();
+        //lista par alos numeros ramd
+
 
         //Arreglo que contrendra las palabras
         String[] palabras = new String[16];
@@ -33,15 +39,17 @@ public class ABC {
                 }
             }
         }
+        //Solo par aver si se lleno correcta mente
         System.out.println("ejemplo lista palabras");
         for (int y=0; y<=15; y++){
             System.out.println(palabras[y]);
         }
         System.out.println(" ");
 
-        tablero.add(palabras[0]);
-        tablero.add(palabras[1]);
-        tablero.add(palabras[2]);
+        //Llenar el tablero con las palabras aleatoriamente
+        for (int t=0; t<=15; t++){
+            tablero.add(palabras[Ram()]);
+        }
 
         for (int i = 1; i <= 6; i++) {
             System.out.println("Numero de dado: "+Dado());
@@ -49,8 +57,9 @@ public class ABC {
 
         System.out.println(" ");
 
+        //Mostramos el tablero
         System.out.println("Datos dentro de la lista doble enlazada");
-        for (int i=0; i<=2;i++){
+        for (int i=0; i<=15;i++){
             System.out.println(" "+ tablero.get(i));
         }
 
