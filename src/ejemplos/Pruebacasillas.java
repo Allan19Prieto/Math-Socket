@@ -37,9 +37,12 @@ public class Pruebacasillas implements Initializable {
     public Button azul_12;
     public Button azul_13;
     public Button azul_final;
+    public Button btn_trampa;
+
     @FXML
     private Label label;
     public Button btn_4x4;
+    public Label label_tipo_casilla;
     @FXML
     private Button btn_5x5;
     @FXML
@@ -56,59 +59,123 @@ public class Pruebacasillas implements Initializable {
     //Arreglo que contrendra las palabras
     String[] palabras = new String[14];
 
+        //Solo par ala primera vuelta de sumado el indice del jugador 1
     int pase = 0;
+    //cuando cae en trampa
+    int pase_Trampa = 0;
 
     int num_lanzado ;
     int num_jugador = 0;
 
     int indice_jugador1 = 0;
 
-
+    //Nombre de la casilla en la que se esta
+    String nombre_casilla;
 
     @FXML
     public void handleButtonAction(javafx.event.ActionEvent actionEvent) {
-        System.out.println("Lanzamiento de Dado");
-        num_lanzado = fn.Lanzar_Dado();
-        label.setText(num_lanzado + " casillas");
-        System.out.println(num_lanzado);
+        if (pase_Trampa == 0) {
+            System.out.println("Lanzamiento de Dado");
+            num_lanzado = fn.Lanzar_Dado();
+            label.setText(num_lanzado + " casillas");
+            System.out.println(num_lanzado);
+
+        }
+        //solo valida la vuelta
+        if (pase_Trampa == 1){
+            pase_Trampa = 0;
+        }
 
         //solo para est afuncion
         //Ejemplo cuando le da un jugadoro y luego el otro
         //cambio de variables
         //indice donde se posiciona
+
         if (num_jugador == 0){
             num_jugador++;
 
             //****************
             if (pase == 0){
+                //Solo sucede la primera vez
                 indice_jugador1 = num_lanzado - 1;
                 pase ++;
             }else {
+
                 indice_jugador1 = indice_jugador1 + (num_lanzado);
             }
 
             //Valida posicion del jugador
             if (indice_jugador1 == 0){
                 azul_inicio.setVisible(false);
+                //**
                 azul_0.setVisible(true);
+                azul_1.setVisible(false);
+                azul_2.setVisible(false);
+                azul_3.setVisible(false);
+                azul_5.setVisible(false);
+                azul_6.setVisible(false);
+                azul_7.setVisible(false);
+                azul_8.setVisible(false);
+                azul_9.setVisible(false);
+                azul_10.setVisible(false);
+                azul_11.setVisible(false);
+                azul_12.setVisible(false);
+                azul_13.setVisible(false);
+                azul_final.setVisible(false);
             }
             if (indice_jugador1 == 1){
                 azul_inicio.setVisible(false);
                 azul_0.setVisible(false);
+                //**
                 azul_1.setVisible(true);
+                azul_2.setVisible(false);
+                azul_3.setVisible(false);
+                azul_5.setVisible(false);
+                azul_6.setVisible(false);
+                azul_7.setVisible(false);
+                azul_8.setVisible(false);
+                azul_9.setVisible(false);
+                azul_10.setVisible(false);
+                azul_11.setVisible(false);
+                azul_12.setVisible(false);
+                azul_13.setVisible(false);
+                azul_final.setVisible(false);
             }
             if (indice_jugador1 == 2){
                 azul_inicio.setVisible(false);
                 azul_0.setVisible(false);
                 azul_1.setVisible(false);
+                //**
                 azul_2.setVisible(true);
+                azul_3.setVisible(false);
+                azul_5.setVisible(false);
+                azul_6.setVisible(false);
+                azul_7.setVisible(false);
+                azul_8.setVisible(false);
+                azul_9.setVisible(false);
+                azul_10.setVisible(false);
+                azul_11.setVisible(false);
+                azul_12.setVisible(false);
+                azul_13.setVisible(false);
+                azul_final.setVisible(false);
             }
             if (indice_jugador1 == 3){
                 azul_inicio.setVisible(false);
                 azul_0.setVisible(false);
                 azul_1.setVisible(false);
                 azul_2.setVisible(false);
+                //**
                 azul_3.setVisible(true);
+                azul_5.setVisible(false);
+                azul_6.setVisible(false);
+                azul_7.setVisible(false);
+                azul_8.setVisible(false);
+                azul_9.setVisible(false);
+                azul_10.setVisible(false);
+                azul_11.setVisible(false);
+                azul_12.setVisible(false);
+                azul_13.setVisible(false);
+                azul_final.setVisible(false);
             }
             if (indice_jugador1 == 4){
                 azul_inicio.setVisible(false);
@@ -116,7 +183,18 @@ public class Pruebacasillas implements Initializable {
                 azul_1.setVisible(false);
                 azul_2.setVisible(false);
                 azul_3.setVisible(false);
+                //**
                 azul_4.setVisible(true);
+                azul_5.setVisible(false);
+                azul_6.setVisible(false);
+                azul_7.setVisible(false);
+                azul_8.setVisible(false);
+                azul_9.setVisible(false);
+                azul_10.setVisible(false);
+                azul_11.setVisible(false);
+                azul_12.setVisible(false);
+                azul_13.setVisible(false);
+                azul_final.setVisible(false);
             }
             if (indice_jugador1 == 5){
                 azul_inicio.setVisible(false);
@@ -125,7 +203,17 @@ public class Pruebacasillas implements Initializable {
                 azul_2.setVisible(false);
                 azul_3.setVisible(false);
                 azul_4.setVisible(false);
+                //**
                 azul_5.setVisible(true);
+                azul_6.setVisible(false);
+                azul_7.setVisible(false);
+                azul_8.setVisible(false);
+                azul_9.setVisible(false);
+                azul_10.setVisible(false);
+                azul_11.setVisible(false);
+                azul_12.setVisible(false);
+                azul_13.setVisible(false);
+                azul_final.setVisible(false);
             }
             if (indice_jugador1 == 6){
                 azul_inicio.setVisible(false);
@@ -136,7 +224,16 @@ public class Pruebacasillas implements Initializable {
                 azul_3.setVisible(false);
                 azul_4.setVisible(false);
                 azul_5.setVisible(false);
+                //**
                 azul_6.setVisible(true);
+                azul_7.setVisible(false);
+                azul_8.setVisible(false);
+                azul_9.setVisible(false);
+                azul_10.setVisible(false);
+                azul_11.setVisible(false);
+                azul_12.setVisible(false);
+                azul_13.setVisible(false);
+                azul_final.setVisible(false);
             }
             if (indice_jugador1 == 7){
                 azul_inicio.setVisible(false);
@@ -147,7 +244,15 @@ public class Pruebacasillas implements Initializable {
                 azul_4.setVisible(false);
                 azul_5.setVisible(false);
                 azul_6.setVisible(false);
+                //**
                 azul_7.setVisible(true);
+                azul_8.setVisible(false);
+                azul_9.setVisible(false);
+                azul_10.setVisible(false);
+                azul_11.setVisible(false);
+                azul_12.setVisible(false);
+                azul_13.setVisible(false);
+                azul_final.setVisible(false);
             }
             if (indice_jugador1 == 8){
                 azul_inicio.setVisible(false);
@@ -159,7 +264,14 @@ public class Pruebacasillas implements Initializable {
                 azul_5.setVisible(false);
                 azul_6.setVisible(false);
                 azul_7.setVisible(false);
+                //**
                 azul_8.setVisible(true);
+                azul_9.setVisible(false);
+                azul_10.setVisible(false);
+                azul_11.setVisible(false);
+                azul_12.setVisible(false);
+                azul_13.setVisible(false);
+                azul_final.setVisible(false);
             }
             if (indice_jugador1 == 9){
                 azul_inicio.setVisible(false);
@@ -172,7 +284,14 @@ public class Pruebacasillas implements Initializable {
                 azul_6.setVisible(false);
                 azul_7.setVisible(false);
                 azul_8.setVisible(false);
+                //**
                 azul_9.setVisible(true);
+                azul_10.setVisible(false);
+                azul_11.setVisible(false);
+                azul_12.setVisible(false);
+                azul_13.setVisible(false);
+                azul_final.setVisible(false);
+
             }
             if (indice_jugador1 == 10){
                 azul_inicio.setVisible(false);
@@ -186,7 +305,12 @@ public class Pruebacasillas implements Initializable {
                 azul_7.setVisible(false);
                 azul_8.setVisible(false);
                 azul_9.setVisible(false);
+                //**
                 azul_10.setVisible(true);
+                azul_11.setVisible(false);
+                azul_12.setVisible(false);
+                azul_13.setVisible(false);
+                azul_final.setVisible(false);
             }
             if (indice_jugador1 == 11){
                 azul_inicio.setVisible(false);
@@ -201,7 +325,11 @@ public class Pruebacasillas implements Initializable {
                 azul_8.setVisible(false);
                 azul_9.setVisible(false);
                 azul_10.setVisible(false);
+                //*******
                 azul_11.setVisible(true);
+                azul_12.setVisible(false);
+                azul_13.setVisible(false);
+                azul_final.setVisible(false);
             }
             if (indice_jugador1 == 12){
                 azul_inicio.setVisible(false);
@@ -217,7 +345,10 @@ public class Pruebacasillas implements Initializable {
                 azul_9.setVisible(false);
                 azul_10.setVisible(false);
                 azul_11.setVisible(false);
+                //****
                 azul_12.setVisible(true);
+                azul_13.setVisible(false);
+                azul_final.setVisible(false);
             }
             if (indice_jugador1 == 13){
                 azul_inicio.setVisible(false);
@@ -234,7 +365,9 @@ public class Pruebacasillas implements Initializable {
                 azul_10.setVisible(false);
                 azul_11.setVisible(false);
                 azul_12.setVisible(false);
+                //***
                 azul_13.setVisible(true);
+                azul_final.setVisible(false);
             }
             if (indice_jugador1 == 14){
                 azul_inicio.setVisible(false);
@@ -252,14 +385,50 @@ public class Pruebacasillas implements Initializable {
                 azul_11.setVisible(false);
                 azul_12.setVisible(false);
                 azul_13.setVisible(false);
+                //***
                 azul_final.setVisible(true);
             }
-
 
             System.out.println("Lanzo el jugador 1");
             label_jugador.setText("Jugador 1");
             label_jugador.setStyle("-fx-background-color: Blue");
-            System.out.println(tablero.get(indice_jugador1));
+            nombre_casilla = tablero.get(indice_jugador1);
+            System.out.println(nombre_casilla);
+
+            //Validacion de las trampas
+            if (nombre_casilla.equals("Trampa1")){
+                //Se habilita el boton de trampa
+                btn_trampa.setVisible(true);
+                pase_Trampa = 1;
+                System.out.println("**");
+            }
+            if (nombre_casilla.equals("Trampa2")){
+                //Se habilita el boton de trampa
+                btn_trampa.setVisible(true);
+                pase_Trampa = 1;
+                System.out.println("**");
+            }
+            if (nombre_casilla.equals("Trampa3")){
+                //Se habilita el boton de trampa
+                btn_trampa.setVisible(true);
+                pase_Trampa = 1;
+                System.out.println("**");
+            }
+            if (nombre_casilla.equals("Trampa4")){
+                //Se habilita el boton de trampa
+                btn_trampa.setVisible(true);
+                pase_Trampa = 1;
+                System.out.println("**");
+            }
+            if (nombre_casilla.equals("Trampa5")){
+                //Se habilita el boton de trampa
+                btn_trampa.setVisible(true);
+                pase_Trampa = 1;
+                System.out.println("**");
+            }
+
+            //implrime la casilla en la que estoy
+            label_tipo_casilla.setText(nombre_casilla);
 
         }else if (num_jugador == 1){
             num_jugador --;
@@ -267,8 +436,49 @@ public class Pruebacasillas implements Initializable {
             label_jugador.setText("Jugador 2");
             label_jugador.setStyle("-fx-background-color: Red");
             System.out.println(tablero.get(num_lanzado-1));
+
         }
         //
+    }
+    @FXML
+    public void TrampaAction(ActionEvent actionEvent) {
+        //Validacion de las trampas
+        if (nombre_casilla.equals("Trampa1")){
+            //se retroceden 3 espacios
+            num_lanzado = -3;
+            num_jugador = 0;
+            handleButtonAction(actionEvent);
+            btn_trampa.setVisible(false);
+        }
+        if (nombre_casilla.equals("Trampa2")){
+            //se retroceden 3 espacios
+            num_lanzado = -3;
+            num_jugador = 0;
+            handleButtonAction(actionEvent);
+            btn_trampa.setVisible(false);
+        }
+        if (nombre_casilla.equals("Trampa3")){
+            //se retroceden 3 espacios
+            num_lanzado = -3;
+            num_jugador = 0;
+            handleButtonAction(actionEvent);
+            btn_trampa.setVisible(false);
+        }
+        if (nombre_casilla.equals("Trampa4")){
+            //se retroceden 3 espacios
+            num_lanzado = -3;
+            num_jugador = 0;
+            handleButtonAction(actionEvent);
+            btn_trampa.setVisible(false);
+        }
+        if (nombre_casilla.equals("Trampa5")){
+            //se retroceden 3 espacios
+            num_lanzado = -3;
+            num_jugador = 0;
+            handleButtonAction(actionEvent);
+            btn_trampa.setVisible(false);
+        }
+
     }
 
     @FXML
@@ -320,10 +530,10 @@ public class Pruebacasillas implements Initializable {
         Tablero.setVisible(true);
     }
 
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         // Todo
     }
-
 
 }

@@ -7,14 +7,17 @@
     <children>
         <Label layoutX="109.0" layoutY="95.0" minHeight="16" minWidth="69" text="Muevete" />
         <Label fx:id="label" layoutX="170.0" layoutY="95.0" minHeight="16" minWidth="69" style="-fx-background-color: Black;" textFill="WHITE" />
-        <Label fx:id="label_jugador" layoutX="270.0" layoutY="95.0" minHeight="16" minWidth="69"  textFill="WHITE" />
+        <Label fx:id="label_jugador" layoutX="270.0" layoutY="95.0" minHeight="16" minWidth="69" textFill="WHITE" />
         <Button fx:id="button" layoutX="14.0" layoutY="91.0" onAction="#handleButtonAction" text="Lanzar dado" />
         <Button fx:id="buttonM" layoutX="14.0" layoutY="50.0" onAction="#btn_mostrarTablero" text="Mostar tablero" />
         <Button fx:id="btn_4x4" layoutX="126.0" layoutY="50.0" onAction="#MostrarTablero" text="4X4" visible="false" />
         <Button fx:id="btn_5x5" layoutX="194.0" layoutY="50.0" mnemonicParsing="false" text="5X5" visible="false" />
         <Button fx:id="btn_6x6" layoutX="262.0" layoutY="50.0" mnemonicParsing="false" text="6X6" visible="false" />
+        <Label layoutX="27.0" layoutY="446.0" text="Se encuantra en la casilla: " />
+        <Label fx:id="label_tipo_casilla" layoutX="170.0" layoutY="446.0" text="Label" />
+        <Button fx:id="btn_trampa" layoutX="231.0" layoutY="434.0" onAction="#TrampaAction" text="trampa -retrocede 3 casillas" visible="false" />
         <!-- Bloque de los tableros -->
-      <Pane fx:id="Tablero" layoutX="133.0" layoutY="195.0" prefHeight="229.0" prefWidth="389.0" visible="false">
+      <Pane fx:id="Tablero" layoutX="133.0" layoutY="195.0" prefHeight="229.0" prefWidth="389.0" visible="true">
          <children>
             <Button fx:id="btn_inicio" ellipsisString="" layoutX="22.0" layoutY="29.0" mnemonicParsing="false" style="-fx-background-color: LightGreen;" text="Inicio" />
             <Button fx:id="btn_1" layoutX="110.0" layoutY="29.0" mnemonicParsing="false" />
@@ -34,22 +37,22 @@
             <Button fx:id="btn_final" layoutX="323.0" layoutY="171.0" mnemonicParsing="false" style="-fx-background-color: LightBlue;" text="Fin" />
             <!--Jugadores-->
              <!--Azul-->
-             <Button fx:id="azul_inicio" layoutX="22.0" layoutY="8.0" mnemonicParsing="false" visible="true" style="-fx-background-color: Blue; -fx-background-radius: 5em; -fx-min-width: 12px; -fx-min-height: 12px; -fx-max-width: 12px; -fx-max-height: 12px; " />
-             <Button fx:id="azul_0" layoutX="98.0" layoutY="8.0" mnemonicParsing="false" visible="false" style="-fx-background-color: Blue; -fx-background-radius: 5em; -fx-min-width: 12px; -fx-min-height: 12px; -fx-max-width: 12px; -fx-max-height: 12px; " />
-            <Button fx:id="azul_1" layoutX="195.0" layoutY="8.0" mnemonicParsing="false" visible="false" style="-fx-background-color: Blue; -fx-background-radius: 5em; -fx-min-width: 12px; -fx-min-height: 12px; -fx-max-width: 12px; -fx-max-height: 12px; " />
-            <Button fx:id="azul_2" layoutX="295.0" layoutY="8.0" mnemonicParsing="false" visible="false" style="-fx-background-color: Blue; -fx-background-radius: 5em; -fx-min-width: 12px; -fx-min-height: 12px; -fx-max-width: 12px; -fx-max-height: 12px; " />
-            <Button fx:id="azul_3" layoutX="16.0" layoutY="60.0" mnemonicParsing="false" visible="false" style="-fx-background-color: Blue; -fx-background-radius: 5em; -fx-min-width: 12px; -fx-min-height: 12px; -fx-max-width: 12px; -fx-max-height: 12px; " />
-            <Button fx:id="azul_4" layoutX="98.0" layoutY="60.0" mnemonicParsing="false" visible="false" style="-fx-background-color: Blue; -fx-background-radius: 5em; -fx-min-width: 12px; -fx-min-height: 12px; -fx-max-width: 12px; -fx-max-height: 12px; " />
-            <Button fx:id="azul_5" layoutX="195.0" layoutY="60.0" mnemonicParsing="false" visible="false" style="-fx-background-color: Blue; -fx-background-radius: 5em; -fx-min-width: 12px; -fx-min-height: 12px; -fx-max-width: 12px; -fx-max-height: 12px; " />
-            <Button fx:id="azul_6" layoutX="295.0" layoutY="66.0" mnemonicParsing="false" visible="false" style="-fx-background-color: Blue; -fx-background-radius: 5em; -fx-min-width: 12px; -fx-min-height: 12px; -fx-max-width: 12px; -fx-max-height: 12px; " />
-            <Button fx:id="azul_7" layoutX="16.0" layoutY="108.0" mnemonicParsing="false" visible="false" style="-fx-background-color: Blue; -fx-background-radius: 5em; -fx-min-width: 12px; -fx-min-height: 12px; -fx-max-width: 12px; -fx-max-height: 12px; " />
-            <Button fx:id="azul_8" layoutX="98.0" layoutY="108.0" mnemonicParsing="false" visible="false" style="-fx-background-color: Blue; -fx-background-radius: 5em; -fx-min-width: 12px; -fx-min-height: 12px; -fx-max-width: 12px; -fx-max-height: 12px; " />
-            <Button fx:id="azul_9" layoutX="198.0" layoutY="109.0" mnemonicParsing="false" visible="false" style="-fx-background-color: Blue; -fx-background-radius: 5em; -fx-min-width: 12px; -fx-min-height: 12px; -fx-max-width: 12px; -fx-max-height: 12px; " />
-            <Button fx:id="azul_10" layoutX="295.0" layoutY="108.0" mnemonicParsing="false" visible="false" style="-fx-background-color: Blue; -fx-background-radius: 5em; -fx-min-width: 12px; -fx-min-height: 12px; -fx-max-width: 12px; -fx-max-height: 12px; " />
-            <Button fx:id="azul_11" layoutX="16.0" layoutY="152.0" mnemonicParsing="false" visible="false" style="-fx-background-color: Blue; -fx-background-radius: 5em; -fx-min-width: 12px; -fx-min-height: 12px; -fx-max-width: 12px; -fx-max-height: 12px; " />
-            <Button fx:id="azul_12" layoutX="98.0" layoutY="152.0" mnemonicParsing="false" visible="false" style="-fx-background-color: Blue; -fx-background-radius: 5em; -fx-min-width: 12px; -fx-min-height: 12px; -fx-max-width: 12px; -fx-max-height: 12px; " />
-            <Button fx:id="azul_13" layoutX="201.0" layoutY="152.0" mnemonicParsing="false" visible="false" style="-fx-background-color: Blue; -fx-background-radius: 5em; -fx-min-width: 12px; -fx-min-height: 12px; -fx-max-width: 12px; -fx-max-height: 12px; " />
-            <Button fx:id="azul_final" layoutX="307.0" layoutY="152.0" mnemonicParsing="false" visible="false" style="-fx-background-color: Blue; -fx-background-radius: 5em; -fx-min-width: 12px; -fx-min-height: 12px; -fx-max-width: 12px; -fx-max-height: 12px; " />
+             <Button fx:id="azul_inicio" layoutX="22.0" layoutY="8.0" mnemonicParsing="false" style="-fx-background-color: Blue; -fx-background-radius: 5em; -fx-min-width: 12px; -fx-min-height: 12px; -fx-max-width: 12px; -fx-max-height: 12px; " visible="true" />
+             <Button fx:id="azul_0" layoutX="98.0" layoutY="8.0" mnemonicParsing="false" style="-fx-background-color: Blue; -fx-background-radius: 5em; -fx-min-width: 12px; -fx-min-height: 12px; -fx-max-width: 12px; -fx-max-height: 12px; " visible="false" />
+            <Button fx:id="azul_1" layoutX="195.0" layoutY="8.0" mnemonicParsing="false" style="-fx-background-color: Blue; -fx-background-radius: 5em; -fx-min-width: 12px; -fx-min-height: 12px; -fx-max-width: 12px; -fx-max-height: 12px; " visible="false" />
+            <Button fx:id="azul_2" layoutX="295.0" layoutY="8.0" mnemonicParsing="false" style="-fx-background-color: Blue; -fx-background-radius: 5em; -fx-min-width: 12px; -fx-min-height: 12px; -fx-max-width: 12px; -fx-max-height: 12px; " visible="false" />
+            <Button fx:id="azul_3" layoutX="16.0" layoutY="60.0" mnemonicParsing="false" style="-fx-background-color: Blue; -fx-background-radius: 5em; -fx-min-width: 12px; -fx-min-height: 12px; -fx-max-width: 12px; -fx-max-height: 12px; " visible="false" />
+            <Button fx:id="azul_4" layoutX="98.0" layoutY="60.0" mnemonicParsing="false" style="-fx-background-color: Blue; -fx-background-radius: 5em; -fx-min-width: 12px; -fx-min-height: 12px; -fx-max-width: 12px; -fx-max-height: 12px; " visible="false" />
+            <Button fx:id="azul_5" layoutX="195.0" layoutY="60.0" mnemonicParsing="false" style="-fx-background-color: Blue; -fx-background-radius: 5em; -fx-min-width: 12px; -fx-min-height: 12px; -fx-max-width: 12px; -fx-max-height: 12px; " visible="false" />
+            <Button fx:id="azul_6" layoutX="295.0" layoutY="66.0" mnemonicParsing="false" style="-fx-background-color: Blue; -fx-background-radius: 5em; -fx-min-width: 12px; -fx-min-height: 12px; -fx-max-width: 12px; -fx-max-height: 12px; " visible="false" />
+            <Button fx:id="azul_7" layoutX="16.0" layoutY="108.0" mnemonicParsing="false" style="-fx-background-color: Blue; -fx-background-radius: 5em; -fx-min-width: 12px; -fx-min-height: 12px; -fx-max-width: 12px; -fx-max-height: 12px; " visible="false" />
+            <Button fx:id="azul_8" layoutX="98.0" layoutY="108.0" mnemonicParsing="false" style="-fx-background-color: Blue; -fx-background-radius: 5em; -fx-min-width: 12px; -fx-min-height: 12px; -fx-max-width: 12px; -fx-max-height: 12px; " visible="false" />
+            <Button fx:id="azul_9" layoutX="198.0" layoutY="109.0" mnemonicParsing="false" style="-fx-background-color: Blue; -fx-background-radius: 5em; -fx-min-width: 12px; -fx-min-height: 12px; -fx-max-width: 12px; -fx-max-height: 12px; " visible="false" />
+            <Button fx:id="azul_10" layoutX="295.0" layoutY="108.0" mnemonicParsing="false" style="-fx-background-color: Blue; -fx-background-radius: 5em; -fx-min-width: 12px; -fx-min-height: 12px; -fx-max-width: 12px; -fx-max-height: 12px; " visible="false" />
+            <Button fx:id="azul_11" layoutX="16.0" layoutY="152.0" mnemonicParsing="false" style="-fx-background-color: Blue; -fx-background-radius: 5em; -fx-min-width: 12px; -fx-min-height: 12px; -fx-max-width: 12px; -fx-max-height: 12px; " visible="false" />
+            <Button fx:id="azul_12" layoutX="98.0" layoutY="152.0" mnemonicParsing="false" style="-fx-background-color: Blue; -fx-background-radius: 5em; -fx-min-width: 12px; -fx-min-height: 12px; -fx-max-width: 12px; -fx-max-height: 12px; " visible="false" />
+            <Button fx:id="azul_13" layoutX="201.0" layoutY="152.0" mnemonicParsing="false" style="-fx-background-color: Blue; -fx-background-radius: 5em; -fx-min-width: 12px; -fx-min-height: 12px; -fx-max-width: 12px; -fx-max-height: 12px; " visible="false" />
+            <Button fx:id="azul_final" layoutX="307.0" layoutY="152.0" mnemonicParsing="false" style="-fx-background-color: Blue; -fx-background-radius: 5em; -fx-min-width: 12px; -fx-min-height: 12px; -fx-max-width: 12px; -fx-max-height: 12px; " visible="false" />
             <!--Rojos-->
              <Button layoutX="52.0" layoutY="8.0" mnemonicParsing="false" style="-fx-background-color: Red; -fx-background-radius: 5em; -fx-min-width: 12px; -fx-min-height: 12px; -fx-max-width: 12px; -fx-max-height: 12px; " />
              <Button layoutX="128.0" layoutY="8.0" mnemonicParsing="false" style="-fx-background-color: Red; -fx-background-radius: 5em; -fx-min-width: 12px; -fx-min-height: 12px; -fx-max-width: 12px; -fx-max-height: 12px; " />
@@ -69,6 +72,7 @@
              <Button layoutX="337.0" layoutY="152.0" mnemonicParsing="false" style="-fx-background-color: Red; -fx-background-radius: 5em; -fx-min-width: 12px; -fx-min-height: 12px; -fx-max-width: 12px; -fx-max-height: 12px; " />
          </children>
       </Pane>
+
 
     </children>
 </AnchorPane>
