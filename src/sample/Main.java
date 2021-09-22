@@ -16,7 +16,6 @@ public class Main extends Application {
         ventanaPrincipal.show();
     }
 
-
     public static void main(String args[]) {
         launch(args);
     }

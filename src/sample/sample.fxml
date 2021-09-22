@@ -4,11 +4,28 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
+<<<<<<< Updated upstream
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: Black;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <TextField fx:id="name" layoutX="265.0" layoutY="120.0" />
       <Label layoutX="134.0" layoutY="124.0" text="Ingresar Nombre:" textFill="WHITE" />
       <Button defaultButton="true" layoutX="276.0" layoutY="237.0" mnemonicParsing="false" text="Jugar" />
+=======
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: Black;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.FXMLDocumentController">
+   <children>
+      <TextField fx:id="name" layoutX="233.0" layoutY="176.0" />
+      <Label layoutX="117.0" layoutY="181.0" text="Ingresar Nombre:" textFill="WHITE" />
+      <Button fx:id="jugar" defaultButton="true" layoutX="233.0" layoutY="259.0" mnemonicParsing="false" onAction="#comenzarJuego" text="Jugar" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#193e60" height="107.0" layoutX="164.0" layoutY="35.0" stroke="BLACK" strokeType="INSIDE" width="187.0" />
+      <Text layoutX="191.0" layoutY="97.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Math-Socket">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Text>
+>>>>>>> Stashed changes
    </children>
 </AnchorPane>
