@@ -1,6 +1,14 @@
 package MathSocket;
 
-public class Funciones {
+import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+
+import java.net.URL;
+import java.util.ResourceBundle;
+
+public class Funciones implements Initializable {
 
 
     //Función para lanzar el dado
@@ -10,4 +18,9 @@ public class Funciones {
 
     //Aleatorio para llenar el tablero
     public static int Ram() { return (int)(Math.random()*13+0); }
+
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+
+    }
 }

@@ -18,6 +18,9 @@ import javafx.scene.layout.Pane;
 public class Pruebacasilla implements Initializable {
 
     @FXML
+    private Funciones funciones;
+
+    @FXML
     public Label label_jugador;
     public Button azul_inicio;
     public Button azul_0;
@@ -93,305 +96,32 @@ public class Pruebacasilla implements Initializable {
             num_jugador++;
 
             //****************
-            if (indice_jugador1 + num_lanzado <=13)
             if (pase == 0){
                 //Solo sucede la primera vez
                 indice_jugador1 = num_lanzado - 1;
                 pase ++;
+
+                //Funcion para el movimiento
+                Movimiento_Azul(indice_jugador1);
+
             }else {
                 // Validacion si el mayor a los numeros en lista
                 if (indice_jugador1 + num_lanzado > 13){
                     indice_jugador1 = 13;
+                    azul_9.setVisible(false);
+                    azul_10.setVisible(false);
+                    azul_11.setVisible(false);
+                    azul_12.setVisible(false);
+                    azul_13.setVisible(false);
                     azul_final.setVisible(true);
+
                 }else {
+                    //Suma de la variable normal
                     indice_jugador1 = indice_jugador1 + (num_lanzado);
+
+                    //Funcion para el movimiento
+                    Movimiento_Azul(indice_jugador1);
                 }
-            }
-
-            //Valida posicion del jugador
-            if (indice_jugador1 == 0){
-                azul_inicio.setVisible(false);
-                //**
-                azul_0.setVisible(true);
-                azul_1.setVisible(false);
-                azul_2.setVisible(false);
-                azul_3.setVisible(false);
-                azul_5.setVisible(false);
-                azul_6.setVisible(false);
-                azul_7.setVisible(false);
-                azul_8.setVisible(false);
-                azul_9.setVisible(false);
-                azul_10.setVisible(false);
-                azul_11.setVisible(false);
-                azul_12.setVisible(false);
-                azul_13.setVisible(false);
-                azul_final.setVisible(false);
-            }
-            if (indice_jugador1 == 1){
-                azul_inicio.setVisible(false);
-                azul_0.setVisible(false);
-                //**
-                azul_1.setVisible(true);
-                azul_2.setVisible(false);
-                azul_3.setVisible(false);
-                azul_5.setVisible(false);
-                azul_6.setVisible(false);
-                azul_7.setVisible(false);
-                azul_8.setVisible(false);
-                azul_9.setVisible(false);
-                azul_10.setVisible(false);
-                azul_11.setVisible(false);
-                azul_12.setVisible(false);
-                azul_13.setVisible(false);
-                azul_final.setVisible(false);
-            }
-            if (indice_jugador1 == 2){
-                azul_inicio.setVisible(false);
-                azul_0.setVisible(false);
-                azul_1.setVisible(false);
-                //**
-                azul_2.setVisible(true);
-                azul_3.setVisible(false);
-                azul_5.setVisible(false);
-                azul_6.setVisible(false);
-                azul_7.setVisible(false);
-                azul_8.setVisible(false);
-                azul_9.setVisible(false);
-                azul_10.setVisible(false);
-                azul_11.setVisible(false);
-                azul_12.setVisible(false);
-                azul_13.setVisible(false);
-                azul_final.setVisible(false);
-            }
-            if (indice_jugador1 == 3){
-                azul_inicio.setVisible(false);
-                azul_0.setVisible(false);
-                azul_1.setVisible(false);
-                azul_2.setVisible(false);
-                //**
-                azul_3.setVisible(true);
-                azul_5.setVisible(false);
-                azul_6.setVisible(false);
-                azul_7.setVisible(false);
-                azul_8.setVisible(false);
-                azul_9.setVisible(false);
-                azul_10.setVisible(false);
-                azul_11.setVisible(false);
-                azul_12.setVisible(false);
-                azul_13.setVisible(false);
-                azul_final.setVisible(false);
-            }
-            if (indice_jugador1 == 4){
-                azul_inicio.setVisible(false);
-                azul_0.setVisible(false);
-                azul_1.setVisible(false);
-                azul_2.setVisible(false);
-                azul_3.setVisible(false);
-                //**
-                azul_4.setVisible(true);
-                azul_5.setVisible(false);
-                azul_6.setVisible(false);
-                azul_7.setVisible(false);
-                azul_8.setVisible(false);
-                azul_9.setVisible(false);
-                azul_10.setVisible(false);
-                azul_11.setVisible(false);
-                azul_12.setVisible(false);
-                azul_13.setVisible(false);
-                azul_final.setVisible(false);
-            }
-            if (indice_jugador1 == 5){
-                azul_inicio.setVisible(false);
-                azul_0.setVisible(false);
-                azul_1.setVisible(false);
-                azul_2.setVisible(false);
-                azul_3.setVisible(false);
-                azul_4.setVisible(false);
-                //**
-                azul_5.setVisible(true);
-                azul_6.setVisible(false);
-                azul_7.setVisible(false);
-                azul_8.setVisible(false);
-                azul_9.setVisible(false);
-                azul_10.setVisible(false);
-                azul_11.setVisible(false);
-                azul_12.setVisible(false);
-                azul_13.setVisible(false);
-                azul_final.setVisible(false);
-            }
-            if (indice_jugador1 == 6){
-                azul_inicio.setVisible(false);
-                azul_inicio.setVisible(false);
-                azul_0.setVisible(false);
-                azul_1.setVisible(false);
-                azul_2.setVisible(false);
-                azul_3.setVisible(false);
-                azul_4.setVisible(false);
-                azul_5.setVisible(false);
-                //**
-                azul_6.setVisible(true);
-                azul_7.setVisible(false);
-                azul_8.setVisible(false);
-                azul_9.setVisible(false);
-                azul_10.setVisible(false);
-                azul_11.setVisible(false);
-                azul_12.setVisible(false);
-                azul_13.setVisible(false);
-                azul_final.setVisible(false);
-            }
-            if (indice_jugador1 == 7){
-                azul_inicio.setVisible(false);
-                azul_0.setVisible(false);
-                azul_1.setVisible(false);
-                azul_2.setVisible(false);
-                azul_3.setVisible(false);
-                azul_4.setVisible(false);
-                azul_5.setVisible(false);
-                azul_6.setVisible(false);
-                //**
-                azul_7.setVisible(true);
-                azul_8.setVisible(false);
-                azul_9.setVisible(false);
-                azul_10.setVisible(false);
-                azul_11.setVisible(false);
-                azul_12.setVisible(false);
-                azul_13.setVisible(false);
-                azul_final.setVisible(false);
-            }
-            if (indice_jugador1 == 8){
-                azul_inicio.setVisible(false);
-                azul_0.setVisible(false);
-                azul_1.setVisible(false);
-                azul_2.setVisible(false);
-                azul_3.setVisible(false);
-                azul_4.setVisible(false);
-                azul_5.setVisible(false);
-                azul_6.setVisible(false);
-                azul_7.setVisible(false);
-                //**
-                azul_8.setVisible(true);
-                azul_9.setVisible(false);
-                azul_10.setVisible(false);
-                azul_11.setVisible(false);
-                azul_12.setVisible(false);
-                azul_13.setVisible(false);
-                azul_final.setVisible(false);
-            }
-
-            if (indice_jugador1 == 9){
-                azul_inicio.setVisible(false);
-                azul_0.setVisible(false);
-                azul_1.setVisible(false);
-                azul_2.setVisible(false);
-                azul_3.setVisible(false);
-                azul_4.setVisible(false);
-                azul_5.setVisible(false);
-                azul_6.setVisible(false);
-                azul_7.setVisible(false);
-                azul_8.setVisible(false);
-                //**
-                azul_9.setVisible(true);
-                azul_10.setVisible(false);
-                azul_11.setVisible(false);
-                azul_12.setVisible(false);
-                azul_13.setVisible(false);
-                //azul_final.setVisible(false);
-
-            }
-            if (indice_jugador1 == 10){
-                azul_inicio.setVisible(false);
-                azul_0.setVisible(false);
-                azul_1.setVisible(false);
-                azul_2.setVisible(false);
-                azul_3.setVisible(false);
-                azul_4.setVisible(false);
-                azul_5.setVisible(false);
-                azul_6.setVisible(false);
-                azul_7.setVisible(false);
-                azul_8.setVisible(false);
-                azul_9.setVisible(false);
-                //**
-                azul_10.setVisible(true);
-                azul_11.setVisible(false);
-                azul_12.setVisible(false);
-                azul_13.setVisible(false);
-                //azul_final.setVisible(false);
-            }
-            if (indice_jugador1 == 11){
-                azul_inicio.setVisible(false);
-                azul_0.setVisible(false);
-                azul_1.setVisible(false);
-                azul_2.setVisible(false);
-                azul_3.setVisible(false);
-                azul_4.setVisible(false);
-                azul_5.setVisible(false);
-                azul_6.setVisible(false);
-                azul_7.setVisible(false);
-                azul_8.setVisible(false);
-                azul_9.setVisible(false);
-                azul_10.setVisible(false);
-                //*******
-                azul_11.setVisible(true);
-                azul_12.setVisible(false);
-                azul_13.setVisible(false);
-                //azul_final.setVisible(false);
-            }
-            if (indice_jugador1 == 12){
-                azul_inicio.setVisible(false);
-                azul_0.setVisible(false);
-                azul_1.setVisible(false);
-                azul_2.setVisible(false);
-                azul_3.setVisible(false);
-                azul_4.setVisible(false);
-                azul_5.setVisible(false);
-                azul_6.setVisible(false);
-                azul_7.setVisible(false);
-                azul_8.setVisible(false);
-                azul_9.setVisible(false);
-                azul_10.setVisible(false);
-                azul_11.setVisible(false);
-                //****
-                azul_12.setVisible(true);
-                azul_13.setVisible(false);
-                //azul_final.setVisible(false);
-            }
-            if (indice_jugador1 == 13){
-                azul_inicio.setVisible(false);
-                azul_0.setVisible(false);
-                azul_1.setVisible(false);
-                azul_2.setVisible(false);
-                azul_3.setVisible(false);
-                azul_4.setVisible(false);
-                azul_5.setVisible(false);
-                azul_6.setVisible(false);
-                azul_7.setVisible(false);
-                azul_8.setVisible(false);
-                azul_9.setVisible(false);
-                azul_10.setVisible(false);
-                azul_11.setVisible(false);
-                azul_12.setVisible(false);
-                //***
-                azul_13.setVisible(true);
-                //azul_final.setVisible(false);
-            }
-            if (indice_jugador1 == 14){
-                azul_inicio.setVisible(false);
-                azul_0.setVisible(false);
-                azul_1.setVisible(false);
-                azul_2.setVisible(false);
-                azul_3.setVisible(false);
-                azul_4.setVisible(false);
-                azul_5.setVisible(false);
-                azul_6.setVisible(false);
-                azul_7.setVisible(false);
-                azul_8.setVisible(false);
-                azul_9.setVisible(false);
-                azul_10.setVisible(false);
-                azul_11.setVisible(false);
-                azul_12.setVisible(false);
-                azul_13.setVisible(false);
-                //***
-                azul_final.setVisible(true);
             }
 
             System.out.println("Lanzo el jugador 1");
@@ -533,6 +263,280 @@ public class Pruebacasilla implements Initializable {
         btn_14.setText(tablero.get(13));
 
         Tablero.setVisible(true);
+    }
+
+
+    //Para el movimiento del punto azul
+    @FXML
+    public void Movimiento_Azul(int indice_jugador1){
+
+        //Valida posicion del jugador
+        if (indice_jugador1 == 0){
+            azul_inicio.setVisible(false);
+            //**
+            azul_0.setVisible(true);
+            azul_1.setVisible(false);
+            azul_2.setVisible(false);
+            azul_3.setVisible(false);
+            azul_5.setVisible(false);
+            azul_6.setVisible(false);
+            azul_7.setVisible(false);
+            azul_8.setVisible(false);
+            azul_9.setVisible(false);
+            azul_10.setVisible(false);
+            azul_11.setVisible(false);
+            azul_12.setVisible(false);
+            azul_13.setVisible(false);
+            //azul_final.setVisible(false);
+        }
+        if (indice_jugador1 == 1){
+            azul_inicio.setVisible(false);
+            azul_0.setVisible(false);
+            //**
+            azul_1.setVisible(true);
+            azul_2.setVisible(false);
+            azul_3.setVisible(false);
+            azul_5.setVisible(false);
+            azul_6.setVisible(false);
+            azul_7.setVisible(false);
+            azul_8.setVisible(false);
+            azul_9.setVisible(false);
+            azul_10.setVisible(false);
+            azul_11.setVisible(false);
+            azul_12.setVisible(false);
+            azul_13.setVisible(false);
+            //azul_final.setVisible(false);
+        }
+        if (indice_jugador1 == 2){
+            azul_inicio.setVisible(false);
+            azul_0.setVisible(false);
+            azul_1.setVisible(false);
+            //**
+            azul_2.setVisible(true);
+            azul_3.setVisible(false);
+            azul_5.setVisible(false);
+            azul_6.setVisible(false);
+            azul_7.setVisible(false);
+            azul_8.setVisible(false);
+            azul_9.setVisible(false);
+            azul_10.setVisible(false);
+            azul_11.setVisible(false);
+            azul_12.setVisible(false);
+            azul_13.setVisible(false);
+            //azul_final.setVisible(false);
+        }
+        if (indice_jugador1 == 3){
+            azul_inicio.setVisible(false);
+            azul_0.setVisible(false);
+            azul_1.setVisible(false);
+            azul_2.setVisible(false);
+            //**
+            azul_3.setVisible(true);
+            azul_5.setVisible(false);
+            azul_6.setVisible(false);
+            azul_7.setVisible(false);
+            azul_8.setVisible(false);
+            azul_9.setVisible(false);
+            azul_10.setVisible(false);
+            azul_11.setVisible(false);
+            azul_12.setVisible(false);
+            azul_13.setVisible(false);
+            //azul_final.setVisible(false);
+        }
+        if (indice_jugador1 == 4){
+            azul_inicio.setVisible(false);
+            azul_0.setVisible(false);
+            azul_1.setVisible(false);
+            azul_2.setVisible(false);
+            azul_3.setVisible(false);
+            //**
+            azul_4.setVisible(true);
+            azul_5.setVisible(false);
+            azul_6.setVisible(false);
+            azul_7.setVisible(false);
+            azul_8.setVisible(false);
+            azul_9.setVisible(false);
+            azul_10.setVisible(false);
+            azul_11.setVisible(false);
+            azul_12.setVisible(false);
+            azul_13.setVisible(false);
+            //azul_final.setVisible(false);
+        }
+        if (indice_jugador1 == 5){
+            azul_inicio.setVisible(false);
+            azul_0.setVisible(false);
+            azul_1.setVisible(false);
+            azul_2.setVisible(false);
+            azul_3.setVisible(false);
+            azul_4.setVisible(false);
+            //**
+            azul_5.setVisible(true);
+            azul_6.setVisible(false);
+            azul_7.setVisible(false);
+            azul_8.setVisible(false);
+            azul_9.setVisible(false);
+            azul_10.setVisible(false);
+            azul_11.setVisible(false);
+            azul_12.setVisible(false);
+            azul_13.setVisible(false);
+            //azul_final.setVisible(false);
+        }
+        if (indice_jugador1 == 6){
+            azul_inicio.setVisible(false);
+            azul_inicio.setVisible(false);
+            azul_0.setVisible(false);
+            azul_1.setVisible(false);
+            azul_2.setVisible(false);
+            azul_3.setVisible(false);
+            azul_4.setVisible(false);
+            azul_5.setVisible(false);
+            //**
+            azul_6.setVisible(true);
+            azul_7.setVisible(false);
+            azul_8.setVisible(false);
+            azul_9.setVisible(false);
+            azul_10.setVisible(false);
+            azul_11.setVisible(false);
+            azul_12.setVisible(false);
+            azul_13.setVisible(false);
+            //azul_final.setVisible(false);
+        }
+        if (indice_jugador1 == 7){
+            azul_inicio.setVisible(false);
+            azul_0.setVisible(false);
+            azul_1.setVisible(false);
+            azul_2.setVisible(false);
+            azul_3.setVisible(false);
+            azul_4.setVisible(false);
+            azul_5.setVisible(false);
+            azul_6.setVisible(false);
+            //**
+            azul_7.setVisible(true);
+            azul_8.setVisible(false);
+            azul_9.setVisible(false);
+            azul_10.setVisible(false);
+            azul_11.setVisible(false);
+            azul_12.setVisible(false);
+            azul_13.setVisible(false);
+            //azul_final.setVisible(false);
+        }
+        if (indice_jugador1 == 8){
+            azul_inicio.setVisible(false);
+            azul_0.setVisible(false);
+            azul_1.setVisible(false);
+            azul_2.setVisible(false);
+            azul_3.setVisible(false);
+            azul_4.setVisible(false);
+            azul_5.setVisible(false);
+            azul_6.setVisible(false);
+            azul_7.setVisible(false);
+            //**
+            azul_8.setVisible(true);
+            azul_9.setVisible(false);
+            azul_10.setVisible(false);
+            azul_11.setVisible(false);
+            azul_12.setVisible(false);
+            azul_13.setVisible(false);
+            //azul_final.setVisible(false);
+        }
+
+        if (indice_jugador1 == 9){
+            azul_inicio.setVisible(false);
+            azul_0.setVisible(false);
+            azul_1.setVisible(false);
+            azul_2.setVisible(false);
+            azul_3.setVisible(false);
+            azul_4.setVisible(false);
+            azul_5.setVisible(false);
+            azul_6.setVisible(false);
+            azul_7.setVisible(false);
+            azul_8.setVisible(false);
+            //**
+            azul_9.setVisible(true);
+            azul_10.setVisible(false);
+            azul_11.setVisible(false);
+            azul_12.setVisible(false);
+            azul_13.setVisible(false);
+            //azul_final.setVisible(false);
+
+        }
+        if (indice_jugador1 == 10){
+            azul_inicio.setVisible(false);
+            azul_0.setVisible(false);
+            azul_1.setVisible(false);
+            azul_2.setVisible(false);
+            azul_3.setVisible(false);
+            azul_4.setVisible(false);
+            azul_5.setVisible(false);
+            azul_6.setVisible(false);
+            azul_7.setVisible(false);
+            azul_8.setVisible(false);
+            azul_9.setVisible(false);
+            //**
+            azul_10.setVisible(true);
+            azul_11.setVisible(false);
+            azul_12.setVisible(false);
+            azul_13.setVisible(false);
+            //azul_final.setVisible(false);
+        }
+        if (indice_jugador1 == 11){
+            azul_inicio.setVisible(false);
+            azul_0.setVisible(false);
+            azul_1.setVisible(false);
+            azul_2.setVisible(false);
+            azul_3.setVisible(false);
+            azul_4.setVisible(false);
+            azul_5.setVisible(false);
+            azul_6.setVisible(false);
+            azul_7.setVisible(false);
+            azul_8.setVisible(false);
+            azul_9.setVisible(false);
+            azul_10.setVisible(false);
+            //*******
+            azul_11.setVisible(true);
+            azul_12.setVisible(false);
+            azul_13.setVisible(false);
+            //azul_final.setVisible(false);
+        }
+        if (indice_jugador1 == 12){
+            azul_inicio.setVisible(false);
+            azul_0.setVisible(false);
+            azul_1.setVisible(false);
+            azul_2.setVisible(false);
+            azul_3.setVisible(false);
+            azul_4.setVisible(false);
+            azul_5.setVisible(false);
+            azul_6.setVisible(false);
+            azul_7.setVisible(false);
+            azul_8.setVisible(false);
+            azul_9.setVisible(false);
+            azul_10.setVisible(false);
+            azul_11.setVisible(false);
+            //****
+            azul_12.setVisible(true);
+            azul_13.setVisible(false);
+            //azul_final.setVisible(false);
+        }
+        if (indice_jugador1 == 13){
+            azul_inicio.setVisible(false);
+            azul_0.setVisible(false);
+            azul_1.setVisible(false);
+            azul_2.setVisible(false);
+            azul_3.setVisible(false);
+            azul_4.setVisible(false);
+            azul_5.setVisible(false);
+            azul_6.setVisible(false);
+            azul_7.setVisible(false);
+            azul_8.setVisible(false);
+            azul_9.setVisible(false);
+            azul_10.setVisible(false);
+            azul_11.setVisible(false);
+            azul_12.setVisible(false);
+            //***
+            azul_13.setVisible(true);
+            //azul_final.setVisible(false);
+        }
+
     }
 
 
