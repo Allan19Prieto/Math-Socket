@@ -1,4 +1,4 @@
-package sample;
+package MathSocket;
 
 public class Controller {
 }

@@ -1,4 +1,4 @@
-package sample;
+package MathSocket;
 
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
