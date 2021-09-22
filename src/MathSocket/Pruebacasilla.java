@@ -98,8 +98,12 @@ public class Pruebacasilla implements Initializable {
                 indice_jugador1 = num_lanzado - 1;
                 pase ++;
             }else {
-
-                indice_jugador1 = indice_jugador1 + (num_lanzado);
+                // Validacion si el mayor a los numeros en lista
+                if (indice_jugador1 + num_lanzado > 13){
+                    indice_jugador1 = 13;
+                }else {
+                    indice_jugador1 = indice_jugador1 + (num_lanzado);
+                }
             }
 
             //Valida posicion del jugador
