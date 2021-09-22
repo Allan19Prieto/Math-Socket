@@ -93,6 +93,7 @@ public class Pruebacasilla implements Initializable {
             num_jugador++;
 
             //****************
+            if (indice_jugador1 + num_lanzado <=13)
             if (pase == 0){
                 //Solo sucede la primera vez
                 indice_jugador1 = num_lanzado - 1;
@@ -101,6 +102,7 @@ public class Pruebacasilla implements Initializable {
                 // Validacion si el mayor a los numeros en lista
                 if (indice_jugador1 + num_lanzado > 13){
                     indice_jugador1 = 13;
+                    azul_final.setVisible(true);
                 }else {
                     indice_jugador1 = indice_jugador1 + (num_lanzado);
                 }
@@ -275,6 +277,7 @@ public class Pruebacasilla implements Initializable {
                 azul_13.setVisible(false);
                 azul_final.setVisible(false);
             }
+
             if (indice_jugador1 == 9){
                 azul_inicio.setVisible(false);
                 azul_0.setVisible(false);
@@ -292,7 +295,7 @@ public class Pruebacasilla implements Initializable {
                 azul_11.setVisible(false);
                 azul_12.setVisible(false);
                 azul_13.setVisible(false);
-                azul_final.setVisible(false);
+                //azul_final.setVisible(false);
 
             }
             if (indice_jugador1 == 10){
@@ -312,7 +315,7 @@ public class Pruebacasilla implements Initializable {
                 azul_11.setVisible(false);
                 azul_12.setVisible(false);
                 azul_13.setVisible(false);
-                azul_final.setVisible(false);
+                //azul_final.setVisible(false);
             }
             if (indice_jugador1 == 11){
                 azul_inicio.setVisible(false);
@@ -331,7 +334,7 @@ public class Pruebacasilla implements Initializable {
                 azul_11.setVisible(true);
                 azul_12.setVisible(false);
                 azul_13.setVisible(false);
-                azul_final.setVisible(false);
+                //azul_final.setVisible(false);
             }
             if (indice_jugador1 == 12){
                 azul_inicio.setVisible(false);
@@ -350,7 +353,7 @@ public class Pruebacasilla implements Initializable {
                 //****
                 azul_12.setVisible(true);
                 azul_13.setVisible(false);
-                azul_final.setVisible(false);
+                //azul_final.setVisible(false);
             }
             if (indice_jugador1 == 13){
                 azul_inicio.setVisible(false);
@@ -369,7 +372,7 @@ public class Pruebacasilla implements Initializable {
                 azul_12.setVisible(false);
                 //***
                 azul_13.setVisible(true);
-                azul_final.setVisible(false);
+                //azul_final.setVisible(false);
             }
             if (indice_jugador1 == 14){
                 azul_inicio.setVisible(false);
