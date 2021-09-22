@@ -9,11 +9,15 @@ import java.net.Socket;
 public class Servidor {
     private boolean miTurno = false;
     private String esperarConexion = "Esperando Conexión";
+    private Main empezarJuego;
+
+
 
 
 
 
     public static void main(String[] args) {
+        Main empezarJuego = new Main();
         Socket socketCliente = null;
         ServerSocket servidor = null;
         DataInputStream in;
@@ -22,7 +26,7 @@ public class Servidor {
 
         {
             try {
-
+                //empezarJuego.start(ventanaPrincipal);
                 servidor = new ServerSocket(4000);
                 Main juegoServidor = new Main();
 
