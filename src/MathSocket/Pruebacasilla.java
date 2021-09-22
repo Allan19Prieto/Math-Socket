@@ -93,7 +93,6 @@ public class Pruebacasilla implements Initializable {
             num_jugador++;
 
             //****************
-            if (indice_jugador1 + num_lanzado <=13)
             if (pase == 0){
                 //Solo sucede la primera vez
                 indice_jugador1 = num_lanzado - 1;
