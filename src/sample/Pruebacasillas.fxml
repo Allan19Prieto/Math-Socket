@@ -3,7 +3,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="484.0" prefWidth="643.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ejemplos.Pruebacasillas">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="484.0" prefWidth="643.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Pruebacasilla">
     <children>
         <Label layoutX="109.0" layoutY="95.0" minHeight="16" minWidth="69" text="Muevete" />
         <Label fx:id="label" layoutX="170.0" layoutY="95.0" minHeight="16" minWidth="69" style="-fx-background-color: Black;" textFill="WHITE" />
