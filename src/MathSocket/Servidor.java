@@ -1,58 +1,100 @@
 package MathSocket;
 
+import javafx.application.Application;
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.control.TextField;
+import javafx.stage.Stage;
+
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.IOException;
 import java.net.ServerSocket;
 import java.net.Socket;
+import java.net.URL;
+import java.util.ResourceBundle;
 
-public class Servidor {
+import static java.lang.Thread.sleep;
+
+public class Servidor extends Application implements Initializable {
     private boolean miTurno = false;
     private String esperarConexion = "Esperando Conexión";
-    private Main empezarJuego;
 
+    private static Socket Sock;
+    private static Cliente cliente;
 
+    @FXML
+    private TextField nombreServidor;
 
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
 
+    }
 
+    @FXML
+    private void comenzarJuego(ActionEvent event) throws Exception {
+        try {
+            Cliente cliente = new Cliente();
+            ServerSocket serverSock = new ServerSocket(6066);
+            Stage ventanaCliente = new Stage();
+            cliente.start(ventanaCliente);
+            Sock = serverSock .accept();
+            DataInputStream in = new DataInputStream(Sock.getInputStream());
+            /* String jugador2 = in.readUTF();
+            String jugador1 = nombreServidor.getText();
+            System.out.println("Nombre Jugador 1: " + jugador1);
+            System.out.println("Nombre Jugador 2: " + jugador2);*/
+            /*Node source = (Node) event.getSource();
+            Stage stage = (Stage) source.getScene().getWindow();
+            String jugador1 = nombreServidor.getText();
+            stage.close();
+            DataInputStream in= new DataInputStream(Sock.getInputStream());
+            String jugador2 = in.readUTF();
+            System.out.println("Nombre Jugador 1: " + jugador1);
+            System.out.println("Nombre Jugador 2: " + jugador2);
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("Pruebacasillas.fxml"));
+            Parent root = loader.load();
+            Stage ventana2 = new Stage();
+            ventana2.setTitle("Server-Socket");
+            ventana2.setScene(new Scene(root));
+            ventana2.show();*/
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Override
+    public void start(Stage ventanaPrincipal) throws Exception {
+        Parent root = FXMLLoader.load(getClass().getResource("servidor.fxml"));
+        ventanaPrincipal.setTitle("Server-Socket");
+        ventanaPrincipal.setScene(new Scene(root, 500, 475));
+        ventanaPrincipal.toFront();
+        ventanaPrincipal.alwaysOnTopProperty();
+        ventanaPrincipal.show();
+    }
 
     public static void main(String[] args) {
-        Main empezarJuego = new Main();
-        Socket socketCliente = null;
-        ServerSocket servidor = null;
-        DataInputStream in;
-        DataOutputStream out;
-
-
-        {
-            try {
-                //empezarJuego.start(ventanaPrincipal);
-                servidor = new ServerSocket(4000);
-                Main juegoServidor = new Main();
-
-
-                System.out.println("Servidor Iniciado");
-
-                while (true) {
-                    socketCliente = servidor.accept();
-                    System.out.println("Cliente Conectado");
-                    in = new DataInputStream(socketCliente.getInputStream());
-                    out = new DataOutputStream(socketCliente.getOutputStream());
-
-                    String mensaje = in.readUTF();
-                    System.out.println(mensaje);
-
-                    out.writeUTF("Hola Cliente");
-
-                    socketCliente.close();
-                    System.out.println("Cliente Desconectado");
-
-                }
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-
-
+        try {
+            System.out.println("Server Side: Line 16");
+            launch(args);
+            System.out.println("Server Side: Line 18");
+            DataOutputStream out =new DataOutputStream(Sock.getOutputStream());
+            System.out.println("Server Side: Line 20");
+            out.writeUTF("i am fine, thank you");
+            System.out.println("Server Side: Line 22");
+            DataInputStream in= new DataInputStream(Sock.getInputStream());
+            System.out.println("Server Side: Line 24");
+            System.out.println(in.readUTF());
+            System.out.println("Server Side: Line 26");
+            Sock.close();
+            System.out.println("Server Side: Line 28");
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 }
