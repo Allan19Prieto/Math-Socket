@@ -9,10 +9,7 @@
         <Label fx:id="label" layoutX="170.0" layoutY="95.0" minHeight="16" minWidth="69" style="-fx-background-color: Black;" textFill="WHITE" />
         <Label fx:id="label_jugador" layoutX="270.0" layoutY="95.0" minHeight="16" minWidth="69" textFill="WHITE" />
         <Button fx:id="button" layoutX="14.0" layoutY="91.0" onAction="#handleButtonAction" text="Lanzar dado" />
-        <Button fx:id="buttonM" layoutX="14.0" layoutY="50.0" onAction="#btn_mostrarTablero" text="Mostar tablero" />
-        <Button fx:id="btn_4x4" layoutX="126.0" layoutY="50.0" onAction="#MostrarTablero" text="4X4" visible="false" />
-        <Button fx:id="btn_5x5" layoutX="194.0" layoutY="50.0" mnemonicParsing="false" text="5X5" visible="false" />
-        <Button fx:id="btn_6x6" layoutX="262.0" layoutY="50.0" mnemonicParsing="false" text="6X6" visible="false" />
+        <Button fx:id="buttonM" layoutX="14.0" layoutY="50.0" onAction="#MostrarTablero" text="Mostar tablero" />
         <Label layoutX="27.0" layoutY="446.0" text="Se encuantra en la casilla: " />
         <Label fx:id="label_tipo_casilla" layoutX="170.0" layoutY="446.0" text="Label" />
         <Button fx:id="btn_trampa" layoutX="231.0" layoutY="434.0" onAction="#TrampaAction" text="trampa -retrocede 3 casillas" visible="false" />
