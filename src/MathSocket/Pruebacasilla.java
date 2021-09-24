@@ -113,8 +113,12 @@ public class Pruebacasilla implements Initializable {
 
                 }else {
                     //Suma de la variable normal
-                    if (indice_jugador1 < 0){
+                    if (indice_jugador1 + num_lanzado < 0){
                         indice_jugador1 = 0;
+                        azul_inicio.setVisible(true);
+                        azul_0.setVisible(false);
+                        azul_1.setVisible(false);
+                        azul_2.setVisible(false);
                     }else {
                         indice_jugador1 = indice_jugador1 + (num_lanzado);
 
