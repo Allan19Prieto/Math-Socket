@@ -10,7 +10,7 @@ public class ABC {
     }
     //Aleatorio para llenar el tablero
     public static int Ram(){
-        return (int)(Math.random()*13+0);
+        return (int)(Math.random()*14+0);
     }
 
     public static void main(String[] args) {
@@ -39,11 +39,11 @@ public class ABC {
             }
         }
         //Solo par aver si se lleno correcta mente
-        System.out.println("ejemplo lista palabras");
+        //System.out.println("ejemplo lista palabras");
         for (int y=0; y<=13; y++){
-            System.out.println(palabras[y]);
+            //System.out.println(palabras[y]);
         }
-        System.out.println(" ");
+        //System.out.println(" ");
 
         //Llenar el tablero con las palabras aleatoriamente
         for (int t=0; t<=13; t++){
@@ -51,16 +51,31 @@ public class ABC {
         }
 
         for (int i = 1; i <= 6; i++) {
-            System.out.println("Numero de dado: "+Dado());
+            //System.out.println("Numero de dado: "+Dado());
         }
 
-        System.out.println(" ");
+        //System.out.println(" ");
 
         //Mostramos el tablero
-        System.out.println("Datos dentro de la lista doble enlazada");
+        //System.out.println("Datos dentro de la lista doble enlazada");
         for (int i=0; i<=13;i++){
-            System.out.println(" "+ tablero.get(i));
+            //System.out.println(" "+ tablero.get(i));
         }
+
+        System.out.println("Lista de nuemros aleatorios sin repetir");
+        ArrayList<Integer> num = new ArrayList<Integer>();
+
+        int var;
+
+        while (num.size() <= 14){
+            var = Ram();
+            if (!num.contains(var)) {
+                num.add(var);
+                System.out.println(var);
+            }
+        }
+
+
 
 
     }

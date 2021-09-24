@@ -9,5 +9,5 @@ public class Funciones {
     }
 
     //Aleatorio para llenar el tablero
-    public static int Ram() { return (int)(Math.random()*13+0); }
+    public static int Ram() { return (int)(Math.random()*1+0); }
 }

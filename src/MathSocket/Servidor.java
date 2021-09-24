@@ -22,6 +22,7 @@ import java.util.ResourceBundle;
 import static java.lang.Thread.sleep;
 
 public class Servidor extends Application implements Initializable {
+
     private boolean miTurno = false;
     private String esperarConexion = "Esperando Conexión";
 
