@@ -42,7 +42,6 @@ public class Pruebacasilla implements Initializable {
 
     @FXML
     private Label label;
-    public Button btn_4x4;
     public Label label_tipo_casilla;
     @FXML
     private Pane Tablero;
@@ -119,6 +118,7 @@ public class Pruebacasilla implements Initializable {
                         azul_0.setVisible(false);
                         azul_1.setVisible(false);
                         azul_2.setVisible(false);
+
                     }else {
                         indice_jugador1 = indice_jugador1 + (num_lanzado);
 
@@ -137,8 +137,12 @@ public class Pruebacasilla implements Initializable {
             //Validacion de las trampas
             if (nombre_casilla.equals("Trampa")){
                 //Se habilita el boton de trampa
-                btn_trampa.setVisible(true);
+                //btn_trampa.setVisible(true);
                 pase_Trampa = 1;
+                num_lanzado = -3;
+                num_jugador = 0;
+                handleButtonAction(actionEvent);
+                btn_trampa.setVisible(false);
                 System.out.println("**");
             }
 
@@ -154,12 +158,12 @@ public class Pruebacasilla implements Initializable {
             System.out.println(tablero.get(num_lanzado-1));
 
         }
-        //
+
     }
     @FXML
     public void TrampaAction(ActionEvent actionEvent) {
         //Validacion de las trampas
-        if (nombre_casilla.equals("Trampa")){
+        /*if (nombre_casilla.equals("Trampa")) {
             //se retroceden 3 espacios
             num_lanzado = -3;
             num_jugador = 0;
@@ -167,7 +171,7 @@ public class Pruebacasilla implements Initializable {
             btn_trampa.setVisible(false);
 
         }
-
+*/
     }
 
 
@@ -486,6 +490,7 @@ public class Pruebacasilla implements Initializable {
         }
 
     }
+
 
 
     @Override
