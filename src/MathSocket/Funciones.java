@@ -6,6 +6,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 public class Funciones implements Initializable {
@@ -17,7 +18,8 @@ public class Funciones implements Initializable {
     }
 
     //Aleatorio para llenar el tablero
-    public static int Ram() { return (int)(Math.random()*13+0); }
+    public static int Ram() { return (int)(Math.random()*14+0); }
+
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {

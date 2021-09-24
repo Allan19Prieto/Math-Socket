@@ -10,6 +10,7 @@ import javafx.scene.control.Label;
 //import java.awt.*;
 //import java.awt.event.ActionEvent;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.ResourceBundle;
 
@@ -57,6 +58,7 @@ public class Pruebacasilla implements Initializable {
 
     //Solo par ala primera vuelta de sumado el indice del jugador 1
     int pase = 0;
+
     //cuando cae en trampa
     int pase_Trampa = 0;
 
@@ -77,6 +79,7 @@ public class Pruebacasilla implements Initializable {
             System.out.println(num_lanzado);
 
         }
+
         //solo valida la vuelta
         if (pase_Trampa == 1){
             pase_Trampa = 0;
@@ -156,7 +159,6 @@ public class Pruebacasilla implements Initializable {
             label_jugador.setText("Jugador 2");
             label_jugador.setStyle("-fx-background-color: Red");
             System.out.println(tablero.get(num_lanzado-1));
-
         }
 
     }
@@ -169,7 +171,6 @@ public class Pruebacasilla implements Initializable {
             num_jugador = 0;
             handleButtonAction(actionEvent);
             btn_trampa.setVisible(false);
-
         }
 */
     }
@@ -187,7 +188,7 @@ public class Pruebacasilla implements Initializable {
                     palabras[k] = "Trampa";
                     if (contador == 2){
                         for (int n = 12; n<=13; n++){
-                            palabras[n] = "Tunel"+(n-11);
+                            palabras[n] = "Tunel";
                         }
                     }
                 }
@@ -195,9 +196,18 @@ public class Pruebacasilla implements Initializable {
         }
 
         //Llenar el tablero con las palabras aleatoriamente
-        for (int t=0; t<=13; t++){
-            tablero.add(palabras[fn.Ram()]);
+        ArrayList<Integer> num = new ArrayList<Integer>();
+        int var;
+        //Solo sacamos numeros que no esten repedidos en el randon
+        while (num.size() < 14){
+            var = fn.Ram();
+            if (!num.contains(var)) {
+                num.add(var);
+                tablero.add(palabras[var]);
+            }
         }
+
+        System.out.println("Revisando pase");
         //Mostar en el tablero los palabras
         btn_1.setText(tablero.get(0));
         btn_2.setText(tablero.get(1));
@@ -488,7 +498,6 @@ public class Pruebacasilla implements Initializable {
             azul_13.setVisible(true);
             //azul_final.setVisible(false);
         }
-
     }
 
 
