@@ -13,7 +13,7 @@ public class Funciones implements Initializable {
 
     //Función para lanzar el dado
     public static int Lanzar_Dado(){
-        return (int)(Math.random()*6+1);
+        return (int)(Math.random()*4+1);
     }
 
     //Aleatorio para llenar el tablero

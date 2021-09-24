@@ -45,10 +45,6 @@ public class Pruebacasilla implements Initializable {
     public Button btn_4x4;
     public Label label_tipo_casilla;
     @FXML
-    private Button btn_5x5;
-    @FXML
-    private Button btn_6x6;
-    @FXML
     private Pane Tablero;
     @FXML
     Button btn_1, btn_2, btn_3, btn_4, btn_5, btn_6, btn_7, btn_8, btn_9, btn_10, btn_11, btn_12, btn_13, btn_14;
@@ -87,8 +83,8 @@ public class Pruebacasilla implements Initializable {
             pase_Trampa = 0;
         }
 
-        //solo para est afuncion
-        //Ejemplo cuando le da un jugadoro y luego el otro
+        //solo para esta funcion
+        //Ejemplo cuando le da un jugador y luego el otro
         //cambio de variables
         //indice donde se posiciona
 
@@ -117,10 +113,14 @@ public class Pruebacasilla implements Initializable {
 
                 }else {
                     //Suma de la variable normal
-                    indice_jugador1 = indice_jugador1 + (num_lanzado);
+                    if (indice_jugador1 < 0){
+                        indice_jugador1 = 0;
+                    }else {
+                        indice_jugador1 = indice_jugador1 + (num_lanzado);
 
-                    //Funcion para el movimiento
-                    Movimiento_Azul(indice_jugador1);
+                        //Funcion para el movimiento
+                        Movimiento_Azul(indice_jugador1);
+                    }
                 }
             }
 
@@ -131,43 +131,20 @@ public class Pruebacasilla implements Initializable {
             System.out.println(nombre_casilla);
 
             //Validacion de las trampas
-            if (nombre_casilla.equals("Trampa1")){
+            if (nombre_casilla.equals("Trampa")){
                 //Se habilita el boton de trampa
                 btn_trampa.setVisible(true);
                 pase_Trampa = 1;
                 System.out.println("**");
             }
-            if (nombre_casilla.equals("Trampa2")){
-                //Se habilita el boton de trampa
-                btn_trampa.setVisible(true);
-                pase_Trampa = 1;
-                System.out.println("**");
-            }
-            if (nombre_casilla.equals("Trampa3")){
-                //Se habilita el boton de trampa
-                btn_trampa.setVisible(true);
-                pase_Trampa = 1;
-                System.out.println("**");
-            }
-            if (nombre_casilla.equals("Trampa4")){
-                //Se habilita el boton de trampa
-                btn_trampa.setVisible(true);
-                pase_Trampa = 1;
-                System.out.println("**");
-            }
-            if (nombre_casilla.equals("Trampa5")){
-                //Se habilita el boton de trampa
-                btn_trampa.setVisible(true);
-                pase_Trampa = 1;
-                System.out.println("**");
-            }
+
 
             //implrime la casilla en la que estoy
             label_tipo_casilla.setText(nombre_casilla);
 
         }else if (num_jugador == 1){
             num_jugador --;
-            System.out.println("Lonzo el jugador 2");
+            System.out.println("Lanzo el jugador 2");
             label_jugador.setText("Jugador 2");
             label_jugador.setStyle("-fx-background-color: Red");
             System.out.println(tablero.get(num_lanzado-1));
@@ -178,50 +155,17 @@ public class Pruebacasilla implements Initializable {
     @FXML
     public void TrampaAction(ActionEvent actionEvent) {
         //Validacion de las trampas
-        if (nombre_casilla.equals("Trampa1")){
+        if (nombre_casilla.equals("Trampa")){
             //se retroceden 3 espacios
             num_lanzado = -3;
             num_jugador = 0;
             handleButtonAction(actionEvent);
             btn_trampa.setVisible(false);
-        }
-        if (nombre_casilla.equals("Trampa2")){
-            //se retroceden 3 espacios
-            num_lanzado = -3;
-            num_jugador = 0;
-            handleButtonAction(actionEvent);
-            btn_trampa.setVisible(false);
-        }
-        if (nombre_casilla.equals("Trampa3")){
-            //se retroceden 3 espacios
-            num_lanzado = -3;
-            num_jugador = 0;
-            handleButtonAction(actionEvent);
-            btn_trampa.setVisible(false);
-        }
-        if (nombre_casilla.equals("Trampa4")){
-            //se retroceden 3 espacios
-            num_lanzado = -3;
-            num_jugador = 0;
-            handleButtonAction(actionEvent);
-            btn_trampa.setVisible(false);
-        }
-        if (nombre_casilla.equals("Trampa5")){
-            //se retroceden 3 espacios
-            num_lanzado = -3;
-            num_jugador = 0;
-            handleButtonAction(actionEvent);
-            btn_trampa.setVisible(false);
+
         }
 
     }
 
-    @FXML
-    public void btn_mostrarTablero(javafx.event.ActionEvent actionEvent){
-        btn_4x4.setVisible(true);
-        btn_5x5.setVisible(true);
-        btn_6x6.setVisible(true);
-    }
 
     @FXML
     public void MostrarTablero(ActionEvent actionEvent) {
@@ -232,7 +176,7 @@ public class Pruebacasilla implements Initializable {
             if (contador == 1){
                 contador ++;
                 for (int k = 7; k <=11; k++){
-                    palabras[k] = "Trampa"+(k-6);
+                    palabras[k] = "Trampa";
                     if (contador == 2){
                         for (int n = 12; n<=13; n++){
                             palabras[n] = "Tunel"+(n-11);
