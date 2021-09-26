@@ -28,6 +28,7 @@ public class Servidor extends Application implements Initializable {
 
     private static Socket Sock;
     private static Cliente cliente;
+    private Thread comenzarServidor = null;
 
     @FXML
     private TextField nombreServidor;
@@ -39,17 +40,17 @@ public class Servidor extends Application implements Initializable {
 
     @FXML
     private void comenzarJuego(ActionEvent event) throws Exception {
-        try {
-            Cliente cliente = new Cliente();
-            ServerSocket serverSock = new ServerSocket(6066);
-            Stage ventanaCliente = new Stage();
-            cliente.start(ventanaCliente);
-            Sock = serverSock .accept();
-            DataInputStream in = new DataInputStream(Sock.getInputStream());
-            /* String jugador2 = in.readUTF();
-            String jugador1 = nombreServidor.getText();
-            System.out.println("Nombre Jugador 1: " + jugador1);
-            System.out.println("Nombre Jugador 2: " + jugador2);*/
+        comenzarServidor = new Thread(new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    ServerSocket serverSock = new ServerSocket(6066);
+                    Sock = serverSock .accept();
+                    DataInputStream in = new DataInputStream(Sock.getInputStream());
+                    String jugador2 = in.readUTF();
+                    String jugador1 = nombreServidor.getText();
+                    System.out.println("Nombre Jugador 1: " + jugador1);
+                    System.out.println("Nombre Jugador 2: " + jugador2);
             /*Node source = (Node) event.getSource();
             Stage stage = (Stage) source.getScene().getWindow();
             String jugador1 = nombreServidor.getText();
@@ -64,9 +65,17 @@ public class Servidor extends Application implements Initializable {
             ventana2.setTitle("Server-Socket");
             ventana2.setScene(new Scene(root));
             ventana2.show();*/
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+
+            }
+        });
+        comenzarServidor.start();
+        Cliente cliente = new Cliente();
+        Stage ventanaCliente = new Stage();
+        cliente.start(ventanaCliente);
+
     }
 
     @Override
