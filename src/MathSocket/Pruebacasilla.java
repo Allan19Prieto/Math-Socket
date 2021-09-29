@@ -71,10 +71,10 @@ public class Pruebacasilla implements Initializable {
     String nombre_casilla;
 
     @FXML
-    public void handleButtonAction(javafx.event.ActionEvent actionEvent) {
+    public void handleButtonAction(javafx.event.ActionEvent actionEvent) throws InterruptedException {
         if (pase_Trampa == 0) {
             System.out.println("Lanzamiento de Dado");
-            num_lanzado = fn.Lanzar_Dado();
+            num_lanzado = fn.Lanzar_Dado(); //Hace funcionar el dado
             label.setText(num_lanzado + " casillas");
             System.out.println(num_lanzado);
 
@@ -147,6 +147,7 @@ public class Pruebacasilla implements Initializable {
                 handleButtonAction(actionEvent);
                 btn_trampa.setVisible(false);
                 System.out.println("**");
+                Thread.sleep(2000);
             }
 
 
