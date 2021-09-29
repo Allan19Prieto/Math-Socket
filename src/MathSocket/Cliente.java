@@ -39,6 +39,7 @@ public class Cliente extends Application implements Initializable {
     private void enviarNombre(ActionEvent event) throws IOException {
         try {
             DataOutputStream out = new DataOutputStream(sock.getOutputStream());
+            //DataInputStream in = new DataInputStream(Sock.getInputStream());
             System.out.println("Enviar nombre a servidor");
             out.writeUTF(nombreCliente.getText());
             this.mensajeEnviado = true;
