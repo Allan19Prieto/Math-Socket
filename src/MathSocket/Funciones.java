@@ -12,7 +12,7 @@ import java.util.ResourceBundle;
 public class Funciones implements Initializable {
 
 
-    //Funcion para lanzar el dado
+    // Aleatorio para lanzar el dado
     public static int Lanzar_Dado(){
         return (int)(Math.random()*4+1);
     }
