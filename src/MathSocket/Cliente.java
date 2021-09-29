@@ -5,7 +5,6 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -26,8 +25,6 @@ public class Cliente extends Application implements Initializable {
 
     private static Socket sock;
     public Boolean mensajeEnviado;
-    private Thread comenzarCliente = null;
-    private Thread comenzarGame = null;
 
     public Cliente() {
         mensajeEnviado = false;
@@ -40,45 +37,24 @@ public class Cliente extends Application implements Initializable {
 
     @FXML
     private void enviarNombre(ActionEvent event) throws IOException {
-        comenzarCliente = new Thread(new Runnable() {
-            private boolean mensajeEnviado;
-
-            @Override
-            public void run() {
-                try {
-                    DataOutputStream out = new DataOutputStream(sock.getOutputStream()); //Sirve para enviar mensajes
-                    System.out.println("Enviar nombre a servidor");
-                    out.writeUTF(nombreCliente.getText()); //Envia el mensaje
-                    this.mensajeEnviado = true;
-
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-
-            }
-        });
-        comenzarCliente = new Thread(new Runnable() { //Instancia el Thread del cliente
-            @Override
-            public void run() {
-                Node source = (Node) event.getSource();
-                Stage stage = (Stage) source.getScene().getWindow();
-                stage.close(); //Cierra la ventana principal
-                FXMLLoader loader = new FXMLLoader(getClass().getResource("Pruebacasillas.fxml")); //Toma los elementos del archivo fxml
-                Parent root = null;
-                try {
-                    root = loader.load();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-                Stage ventana2 = new Stage(); //Crea la ventana principal del servidor
-                ventana2.setTitle("Client-Socket"); //Titulo de la ventana
-                ventana2.setScene(new Scene(root));
-                ventana2.show(); //Muestra la ventana
-            }
-        });
-        comenzarCliente.start(); //Inicia el Thread del cliente
-        comenzarGame.start(); //Inicia el Thread del Juego
-
+        try {
+            DataOutputStream out = new DataOutputStream(sock.getOutputStream());
+            //DataInputStream in = new DataInputStream(Sock.getInputStream());
+            System.out.println("Enviar nombre a servidor");
+            out.writeUTF(nombreCliente.getText());
+            this.mensajeEnviado = true;
+            /*Node source = (Node) event.getSource();
+            Stage stage = (Stage) source.getScene().getWindow();
+            stage.close();
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("Pruebacasillas.fxml"));
+            Parent root = loader.load();
+            Stage ventana2 = new Stage();
+            ventana2.setTitle("Client-Socket");
+            ventana2.setScene(new Scene(root));
+            ventana2.show();*/
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
 
