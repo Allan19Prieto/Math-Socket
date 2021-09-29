@@ -1,4 +1,4 @@
-package Pruebap2p;
+package pruebapp;
 
 import javax.json.Json;
 import javax.json.JsonObject;
