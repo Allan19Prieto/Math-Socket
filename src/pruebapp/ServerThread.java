@@ -1,4 +1,4 @@
-package Pruebap2p;
+package pruebapp;
 
 import java.io.IOException;
 import java.net.ServerSocket;

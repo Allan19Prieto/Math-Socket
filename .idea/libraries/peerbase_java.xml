@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="peerbase-java">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/../peerbase-java.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$PROJECT_DIR$/../peerbase-java.jar!/" />
+    </SOURCES>
+  </library>
+</component>

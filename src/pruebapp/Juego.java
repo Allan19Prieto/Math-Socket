@@ -1,25 +1,41 @@
-package Pruebap2p;
+package pruebapp;
+
+import javafx.application.Application;
+import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.stage.Stage;
 
 import javax.json.Json;
-import javax.json.JsonObject;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.StringWriter;
 import java.net.Socket;
+import java.net.URL;
+import java.util.ResourceBundle;
 
+public class Juego extends Application implements Initializable {
 
-public class Peer {
+    public String nombreJugador;
+    public String puetoJugador;
 
-    public static void main(String[] args) throws Exception {
-        BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
-        System.out.println(" > enter username & port # for this peer:");
-        String[] setupValues = bufferedReader.readLine().split(":");
-        //Mandamos el puerto al serverThread
-        ServerThread serverThread = new ServerThread(setupValues[1]);
-        serverThread.start();
-        new Peer().updateListenToPeers(bufferedReader, setupValues[0], serverThread );
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+
     }
+
+    public void inicial(String usename, String serverPuerto) throws Exception {
+        BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
+
+        //Mandamos el puerto al serverThread
+        ServerThread serverThread = new ServerThread(serverPuerto);
+        serverThread.start();
+        new Juego().updateListenToPeers(bufferedReader, usename, serverThread);
+    }
+
     public void updateListenToPeers(BufferedReader bufferedReader, String username, ServerThread serverThread) throws Exception{
         System.out.println("> enter (space separated) hostname:port#");
         System.out.println(" peers to receive messages from (s to skip):");
@@ -40,6 +56,8 @@ public class Peer {
         }
         communicate(bufferedReader, username, serverThread);
     }
+
+    @FXML
     public void communicate(BufferedReader bufferedReader, String username, ServerThread serverThread) {
         try{
             System.out.println("> you can now comunicate (e to exit, c to change)");
@@ -49,7 +67,7 @@ public class Peer {
                 if (message.equals("e")) {
                     break;
                 } else if(message.equals("c")) {
-                    updateListenToPeers(bufferedReader, username, serverThread);
+                    //updateListenToPeers(bufferedReader, username, serverThread);
                 } else {
                     StringWriter stringWriter = new StringWriter();
                     Json.createWriter(stringWriter).writeObject(Json.createObjectBuilder()
@@ -64,4 +82,18 @@ public class Peer {
 
         }
     }
+
+    @Override
+    public void start(Stage primaryStage) throws Exception {
+        Parent root = FXMLLoader.load(getClass().getResource("frmjuego.fxml"));
+        primaryStage.setTitle("Partida de --> "+ nombreJugador);
+        primaryStage.setScene(new Scene(root, 600, 500));
+        primaryStage.toFront();
+        primaryStage.alwaysOnTopProperty();
+        primaryStage.show();
+        System.out.printf(nombreJugador);
+        System.out.printf(puetoJugador);
+    }
+
+    public static void main(String[] args) {launch(args);}
 }

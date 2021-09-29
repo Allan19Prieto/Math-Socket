@@ -31,5 +31,7 @@
       </library>
     </orderEntry>
     <orderEntry type="library" name="javax.json-1.0.4" level="project" />
+    <orderEntry type="library" name="peerbase-java" level="project" />
+    <orderEntry type="library" name="bin" level="project" />
   </component>
 </module>
