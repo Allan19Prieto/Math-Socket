@@ -1,11 +1,13 @@
 package pruebapp;
 
 import javafx.application.Application;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Label;
 import javafx.stage.Stage;
 
 import javax.json.Json;
@@ -20,19 +22,43 @@ import java.util.ResourceBundle;
 public class Juego extends Application implements Initializable {
 
     public String nombreJugador;
-    public String puetoJugador;
+
+    public String Vnombre;
+    public String Vpuerto;
+
+    @FXML
+    public Label lbNombre;
+    @FXML
+    public Label lbPuerto;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-
+        String Vpuerto;
     }
 
-    public void inicial(String usename, String serverPuerto) throws Exception {
-        BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
+    @FXML
+    public void bntnEntrar(ActionEvent actionEvent) throws Exception  {
+       /* String nn = Vnombre;
+        lbNombre.setText(" **");
+        lbPuerto.setText(Vpuerto);
+        System.out.println("Prueba");
+        System.out.println(String.valueOf(Vnombre));
+        System.out.println(nn); */
+    }
+
+
+    public void inicial(BufferedReader bufferedReader,String usename, String serverPuerto) throws Exception {
+        //BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
 
         //Mandamos el puerto al serverThread
         ServerThread serverThread = new ServerThread(serverPuerto);
         serverThread.start();
+
+        //Recivimos el nombre y el puerto de la clase peer
+        Vnombre = usename;
+        Vpuerto = serverPuerto;
+
+        System.out.println(usename+":"+serverPuerto);
         new Juego().updateListenToPeers(bufferedReader, usename, serverThread);
     }
 
@@ -91,9 +117,10 @@ public class Juego extends Application implements Initializable {
         primaryStage.toFront();
         primaryStage.alwaysOnTopProperty();
         primaryStage.show();
-        System.out.printf(nombreJugador);
-        System.out.printf(puetoJugador);
+        //System.out.println(nombreJugador);
+        //System.out.println(puetoJugador);
     }
 
     public static void main(String[] args) {launch(args);}
+
 }

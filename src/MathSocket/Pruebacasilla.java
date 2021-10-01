@@ -77,7 +77,6 @@ public class Pruebacasilla implements Initializable {
             num_lanzado = fn.Lanzar_Dado(); //Hace funcionar el dado
             label.setText(num_lanzado + " casillas");
             System.out.println(num_lanzado);
-
         }
 
         //solo valida la vuelta
@@ -112,7 +111,6 @@ public class Pruebacasilla implements Initializable {
                     azul_12.setVisible(false);
                     azul_13.setVisible(false);
                     azul_final.setVisible(true);
-
                 }else {
                     //Suma de la variable normal
                     if (indice_jugador1 + num_lanzado < 0){
@@ -121,7 +119,6 @@ public class Pruebacasilla implements Initializable {
                         azul_0.setVisible(false);
                         azul_1.setVisible(false);
                         azul_2.setVisible(false);
-
                     }else {
                         indice_jugador1 = indice_jugador1 + (num_lanzado);
 
