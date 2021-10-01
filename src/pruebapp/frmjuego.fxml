@@ -1,24 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="pruebapp.Juego"
-            prefHeight="400.0" prefWidth="600.0">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pruebapp.Juego">
     <children>
         <Label layoutX="109.0" layoutY="95.0" minHeight="16" minWidth="69" text="Muevete" />
         <Label fx:id="label" layoutX="170.0" layoutY="95.0" minHeight="16" minWidth="69" style="-fx-background-color: Black;" textFill="WHITE" />
         <Label fx:id="label_jugador" layoutX="270.0" layoutY="95.0" minHeight="16" minWidth="69" textFill="WHITE" />
-        <Button fx:id="button" layoutX="14.0" layoutY="91.0"  text="Lanzar dado" />
-        <Button fx:id="buttonM" layoutX="14.0" layoutY="50.0"  text="Mostar tablero" />
+        <Button fx:id="button" layoutX="14.0" layoutY="91.0" text="Lanzar dado" />
+        <Button fx:id="buttonM" layoutX="14.0" layoutY="50.0" text="Mostar tablero" />
         <Label layoutX="27.0" layoutY="446.0" text="Se encuantra en la casilla: " />
         <Label fx:id="label_tipo_casilla" layoutX="170.0" layoutY="446.0" text="Label" />
-        <Button fx:id="btn_trampa" layoutX="231.0" layoutY="434.0"  text="trampa -retrocede 3 casillas" visible="false" />
+        <Button fx:id="btn_trampa" layoutX="231.0" layoutY="434.0" text="trampa -retrocede 3 casillas" visible="false" />
         <!-- Bloque de los tableros -->
         <Pane fx:id="Tablero" layoutX="133.0" layoutY="195.0" prefHeight="229.0" prefWidth="389.0" visible="true">
             <children>
@@ -75,5 +69,10 @@
                 <Button layoutX="337.0" layoutY="152.0" mnemonicParsing="false" style="-fx-background-color: Red; -fx-background-radius: 5em; -fx-min-width: 12px; -fx-min-height: 12px; -fx-max-width: 12px; -fx-max-height: 12px; " />
             </children>
         </Pane>
+
+
+        <Button layoutX="133.0" layoutY="26.0" onAction="#bntnEntrar" text="Entrar" />
+        <Label fx:id="lbNombre" layoutX="198.0" layoutY="21.0" textFill="BLACK" />
+        <Label fx:id="lbPuerto" layoutX="198.0" layoutY="55.0" textFill="BLACK" />
     </children>
 </AnchorPane>

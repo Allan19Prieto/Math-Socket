@@ -20,7 +20,7 @@
         <Label layoutX="117.0" layoutY="220.0" text="Ingresar Puerto:" textFill="WHITE" />
         <TextField fx:id="nombreServidor" layoutX="233.0" layoutY="176.0" />
         <TextField fx:id="puertoServidor" layoutX="233.0" layoutY="216.0" />
-        <Button fx:id="jugar" defaultButton="true" layoutX="233.0" layoutY="259.0" mnemonicParsing="false" onAction="#conectarJugador" text="Conectar" />
+        <Button fx:id="jugar" defaultButton="true" layoutX="233.0" layoutY="259.0" mnemonicParsing="false" onAction="#conectarJugador" text="Registrarse" />
         <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#193e60" height="107.0" layoutX="164.0" layoutY="35.0" stroke="BLACK" strokeType="INSIDE" width="187.0" />
         <Text layoutX="191.0" layoutY="97.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Math-Socket">
             <font>
