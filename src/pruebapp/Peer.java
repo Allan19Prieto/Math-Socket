@@ -43,7 +43,6 @@ public class Peer extends Application implements Initializable {
 
     @FXML
     public void conectarJugador(ActionEvent actionEvent) throws Exception {
-        BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
         nombreJugador = nombreServidor.getText();
         puertoJugador = puertoServidor.getText();
 
@@ -51,7 +50,7 @@ public class Peer extends Application implements Initializable {
         Juego jugador = new Juego();
         jugador.nombreJugador = nombreJugador;
         //jugador.puetoJugador = puertoJugador;
-        jugador.inicial(bufferedReader, nombreJugador,puertoJugador);
+        jugador.inicial(nombreJugador,puertoJugador);
 
         //Abrimos la nueva ventana del Juego
         Stage ventanaCliente = new Stage();

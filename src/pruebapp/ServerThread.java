@@ -10,7 +10,8 @@ public class ServerThread extends Thread {
     private Set<ServerThreadThread> serverThreadThreads = new HashSet<ServerThreadThread>();
     //Entra el numero del puerto a utilizar
     public ServerThread(String portNumb) throws IOException {
-        //Convertimos el string del puerto a entero
+        System.out.println("***pasando por el serverThread*****");
+        //Convertimos a Integer del puerto y se lo pasamos al serverSocket
         serverSocket = new ServerSocket(Integer.valueOf(portNumb));
     }
 
@@ -28,7 +29,7 @@ public class ServerThread extends Thread {
     void sendMessage(String message) {
         try {
             serverThreadThreads.forEach(t-> t.getPrintWriter().println(message));
-            System.out.printf("Este mensaje" + message);
+            System.out.println("Este mensaje" + message);
         }catch (Exception e){
             e.printStackTrace();
         }

@@ -47,8 +47,8 @@ public class Juego extends Application implements Initializable {
     }
 
 
-    public void inicial(BufferedReader bufferedReader,String usename, String serverPuerto) throws Exception {
-        //BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
+    public void inicial(String usename, String serverPuerto) throws Exception {
+        BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
 
         //Mandamos el puerto al serverThread
         ServerThread serverThread = new ServerThread(serverPuerto);
