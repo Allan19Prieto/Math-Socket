@@ -12,9 +12,12 @@ public class ServerThreadThread extends Thread {
     public ServerThreadThread(Socket socket, ServerThread serverThread) {
         this.serverThread = serverThread;
         this.socket = socket;
+        System.out.println("***ServerThreadThread "+serverThread);
+        System.out.println("***ServerThreadThread "+socket);
     }
     public void run() {
         try {
+            //Leemos el imput del mensaje
             BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(this.socket.getInputStream()));
             this.printWriter = new PrintWriter(socket.getOutputStream(), true);
             while (true) serverThread.sendMessage( bufferedReader.readLine());
@@ -22,7 +25,10 @@ public class ServerThreadThread extends Thread {
             serverThread.getServerThreadThreads().remove(this);
         }
     }
+    //devolvemos la alectura del mensaje
     public PrintWriter getPrintWriter() {
+        System.out.println("****Que es el mensaje que se retorna: "+ printWriter);
         return printWriter;
+
     }
 }
