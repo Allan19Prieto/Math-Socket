@@ -54,7 +54,7 @@ public class Juego extends Application implements Initializable {
         ServerThread serverThread = new ServerThread(serverPuerto);
         serverThread.start();
 
-        //Recivimos el nombre y el puerto de la clase peer
+        //Recibimos el nombre y el puerto de la clase peer
         Vnombre = usename;
         Vpuerto = serverPuerto;
 
@@ -68,18 +68,24 @@ public class Juego extends Application implements Initializable {
         String input = bufferedReader.readLine();
         String[] inputValues = input.split(" ");
 
-        if (!input.equals("s")) for (int i = 0; i < inputValues.length; i++) {
-            String[] address = inputValues[i].split(":");
-            Socket socket = null;
-            // address[0]);
-            try{
-                socket = new Socket(address[0], Integer.valueOf(address[1]));
-                new PeerThread(socket).start();
-            }catch (Exception e) {
-                if (socket != null) socket.close();
-                else System.out.println("invalid input. skipping to next step.");
+        if (!input.equals("s")) {
+            for (int i = 0; i < inputValues.length; i++) {
+                System.out.print("input: " + input);
+                String[] address = inputValues[i].split(":");
+                Socket socket = null;
+                // address[0]);
+                try {
+                    System.out.println("Line 77");
+                    socket = new Socket(address[0], Integer.valueOf(address[1]));
+                    System.out.println("Line 78");
+                    new PeerThread(socket).start();
+                } catch (Exception e) {
+                    if (socket != null) socket.close();
+                    else System.out.println("invalid input. skipping to next step.");
+                }
             }
         }
+
         communicate(bufferedReader, username, serverThread);
     }
 
