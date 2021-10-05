@@ -2,26 +2,37 @@ package pruebapp;
 
 import javax.json.Json;
 import javax.json.JsonObject;
-import java.io.BufferedReader;
+import java.io.DataInputStream;
 import java.io.IOException;
-import java.io.InputStreamReader;
 import java.net.Socket;
 
 public class PeerThread extends Thread{
-    private BufferedReader bufferedReader;
+
+    public Boolean esperandoMensaje;
+    public String mensaje;
+    public String comando;
+
+    private DataInputStream dataInputStream;
+
     public PeerThread(Socket socket) throws IOException {
-        bufferedReader = new BufferedReader(new InputStreamReader(socket.getInputStream()));
+        dataInputStream = new DataInputStream(socket.getInputStream());
     }
+
     public void run() {
         boolean flag = true;
         while (flag) {
             try{
-                JsonObject jsonObject = Json.createReader(bufferedReader).readObject();
-                if (jsonObject.containsKey("username"))
+                JsonObject jsonObject = Json.createReader(dataInputStream).readObject();
+                System.out.print(jsonObject.toString());
+                if (jsonObject.containsKey("comando")) {
                     //Imprimimos en consola dependiando del mensaje
-                    System.out.println("["+jsonObject.getString("username")+"]: "+ jsonObject.getString("message"));
-                    System.out.println("MathSocket");
-            }catch (Exception e){
+                    System.out.println("[" + jsonObject.getString("comando") + "]: " + jsonObject.getString("message"));
+                    this.comando = jsonObject.getString("comando");
+                    this.mensaje = jsonObject.getString("message");
+                    this.esperandoMensaje = false;
+                }
+                this.esperandoMensaje = false;
+            } catch (Exception e){
                 flag = false;
                 interrupt();
             }

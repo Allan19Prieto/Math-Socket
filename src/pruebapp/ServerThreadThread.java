@@ -18,16 +18,16 @@ public class ServerThreadThread extends Thread {
     public void run() {
         try {
             //Leemos el imput del mensaje
-            BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(this.socket.getInputStream()));
-            this.printWriter = new PrintWriter(socket.getOutputStream(), true);
-            while (true) serverThread.sendMessage( bufferedReader.readLine());
+            //BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(this.socket.getInputStream()));
+            //this.printWriter = new PrintWriter(socket.getOutputStream(), true);
+            //while (true) serverThread.sendMessage( bufferedReader.readLine());
         }catch (Exception e) {
-            serverThread.getServerThreadThreads().remove(this);
+            //serverThread.getServerThreadThreads().remove(this);
         }
     }
     //devolvemos la alectura del mensaje
     public PrintWriter getPrintWriter() {
-        System.out.println("****Que es el mensaje que se retorna: "+ printWriter);
+        //System.out.println("****Que es el mensaje que se retorna: "+ printWriter.toString());
         return printWriter;
 
     }

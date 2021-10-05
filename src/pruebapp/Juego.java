@@ -21,8 +21,6 @@ import java.util.ResourceBundle;
 
 public class Juego extends Application implements Initializable {
 
-    public String nombreJugador;
-
     public String Vnombre;
     public String Vpuerto;
 
@@ -30,6 +28,9 @@ public class Juego extends Application implements Initializable {
     public Label lbNombre;
     @FXML
     public Label lbPuerto;
+
+    public Boolean inicioJuego;
+    public Boolean miTurno;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -46,6 +47,12 @@ public class Juego extends Application implements Initializable {
         System.out.println(nn); */
     }
 
+    public Juego (Boolean inicioJuego, String Vnombre, String Vpuerto) {
+        this.inicioJuego = inicioJuego;
+        this.Vnombre = Vnombre;
+        this.Vpuerto = Vpuerto;
+        this.miTurno = false;
+    }
 
     public void inicial(String usename, String serverPuerto) throws Exception {
         BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
@@ -59,7 +66,7 @@ public class Juego extends Application implements Initializable {
         Vpuerto = serverPuerto;
 
         System.out.println(usename+":"+serverPuerto);
-        new Juego().updateListenToPeers(bufferedReader, usename, serverThread);
+        updateListenToPeers(bufferedReader, usename, serverThread);
     }
 
     public void updateListenToPeers(BufferedReader bufferedReader, String username, ServerThread serverThread) throws Exception{
@@ -106,7 +113,7 @@ public class Juego extends Application implements Initializable {
                             .add("username",username)
                             .add("message",message)
                             .build());
-                    serverThread.sendMessage(stringWriter.toString());
+                    //serverThread.sendMessage(stringWriter.toString());
                 }
             }
             System.exit(0);
@@ -118,15 +125,11 @@ public class Juego extends Application implements Initializable {
     @Override
     public void start(Stage primaryStage) throws Exception {
         Parent root = FXMLLoader.load(getClass().getResource("frmjuego.fxml"));
-        primaryStage.setTitle("Partida de --> "+ nombreJugador);
+        primaryStage.setTitle("Partida de --> "+ this.Vnombre);
         primaryStage.setScene(new Scene(root, 600, 500));
         primaryStage.toFront();
         primaryStage.alwaysOnTopProperty();
         primaryStage.show();
-        //System.out.println(nombreJugador);
-        //System.out.println(puetoJugador);
     }
-
-    public static void main(String[] args) {launch(args);}
 
 }
