@@ -1,7 +1,14 @@
 package pruebapp;
+<<<<<<< HEAD
 
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
+=======
+import javax.json.Json;
+import java.io.BufferedReader;
+import java.io.DataInputStream;
+import java.io.InputStreamReader;
+>>>>>>> f72da933781b7dbcab713dea45c46cc276a604b4
 import java.io.StringWriter;
 import java.net.ServerSocket;
 import java.net.Socket;
@@ -70,6 +77,12 @@ public class Peer extends Application implements Initializable {
     // Boton "Registrarme"
     @FXML
     public void conectarJugador(ActionEvent actionEvent) throws Exception {
+<<<<<<< HEAD
+=======
+        BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
+
+        // Asignar valores del UI
+>>>>>>> f72da933781b7dbcab713dea45c46cc276a604b4
         nombreJugador = nombreServidor.getText();
         //puertoJugador = puertoServidor.getText();
 
