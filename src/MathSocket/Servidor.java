@@ -61,6 +61,7 @@ public class Servidor extends Application implements Initializable {
             System.out.println("Nombre Jugador 2: " + jugador2);
             FXMLLoader loader = new FXMLLoader(getClass().getResource("Pruebacasillas.fxml"));
             Parent root = loader.load();
+
             Stage ventana2 = new Stage();
             ventana2.setTitle("Server-Socket");
             ventana2.setScene(new Scene(root));
@@ -71,11 +72,11 @@ public class Servidor extends Application implements Initializable {
 
             }
         });
+
         comenzarServidor.start();
         Cliente cliente = new Cliente();
         Stage ventanaCliente = new Stage();
         cliente.start(ventanaCliente);
-
     }
 
     @Override
