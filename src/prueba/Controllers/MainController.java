@@ -44,7 +44,6 @@ public class MainController implements SupervisorListener, GameStateListener {
     @FXML public Label labelUsername;
     @FXML public Label label_tipo_casilla;
     @FXML public Label labelId;
-    @FXML public Label label;
     @FXML public Label labelPort;
     @FXML public Button connectButton;
     @FXML public TextField peerHost;
@@ -568,7 +567,7 @@ public class MainController implements SupervisorListener, GameStateListener {
         if (pase_Trampa == 0) {
             System.out.println("Lanzamiento de Dado");
             num_lanzado = fn.Lanzar_Dado(); //Hace funcionar el dado
-            label.setText(num_lanzado + " casillas");
+            //label.setText(num_lanzado + "casillas");
             System.out.println(num_lanzado);
         }
 
@@ -637,7 +636,7 @@ public class MainController implements SupervisorListener, GameStateListener {
                 lanzarDados(actionEvent);
                 btn_trampa.setVisible(false);
                 System.out.println("**");
-                Thread.sleep(2000);
+
             }
 
 
