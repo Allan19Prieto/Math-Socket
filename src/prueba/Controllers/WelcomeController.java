@@ -45,7 +45,7 @@ public class WelcomeController implements Initializable {
         fxmlLoader.setController(this);
         try {
             parent = fxmlLoader.load();
-            scene = new Scene(parent, 600, 400);
+            scene = new Scene(parent, 500, 475);
         } catch (IOException e) {
             // manage the exception
         }
