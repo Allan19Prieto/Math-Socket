@@ -82,5 +82,6 @@
                 <Button layoutX="337.0" layoutY="152.0" mnemonicParsing="false" style="-fx-background-color: Red; -fx-background-radius: 5em; -fx-min-width: 12px; -fx-min-height: 12px; -fx-max-width: 12px; -fx-max-height: 12px; " />
             </children>
         </Pane>
+      <Label fx:id="label" layoutX="168.0" layoutY="175.0" prefHeight="17.0" prefWidth="68.0" style="-fx-background-color: Black;" textFill="WHITE" />
     </children>
 </AnchorPane>
