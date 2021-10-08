@@ -72,6 +72,22 @@ public class MainController implements SupervisorListener, GameStateListener {
     @FXML public Button azul_13;
     @FXML public Button azul_final;
     @FXML public Button btn_trampa;
+    @FXML public Button rojo_0;
+    @FXML public Button rojo_1;
+    @FXML public Button rojo_2;
+    @FXML public Button rojo_3;
+    @FXML public Button rojo_4;
+    @FXML public Button rojo_5;
+    @FXML public Button rojo_6;
+    @FXML public Button rojo_7;
+    @FXML public Button rojo_8;
+    @FXML public Button rojo_9;
+    @FXML public Button rojo_10;
+    @FXML public Button rojo_11;
+    @FXML public Button rojo_12;
+    @FXML public Button rojo_13;
+    @FXML public Button rojo_final;
+    @FXML public Button rojo_inicio;
 
     @FXML
     Button btn_1, btn_2, btn_3, btn_4, btn_5, btn_6, btn_7, btn_8, btn_9, btn_10, btn_11, btn_12, btn_13, btn_14;
@@ -100,7 +116,7 @@ public class MainController implements SupervisorListener, GameStateListener {
     int flagTrampa = 0;
 
     int indice_jugador1 = 0;
-
+    int indice_jugador2 = 0;
     //Nombre de la casilla en la que se esta
     String nombre_casilla;
 
@@ -313,6 +329,7 @@ public class MainController implements SupervisorListener, GameStateListener {
             azul_1.setVisible(false);
             azul_2.setVisible(false);
             azul_3.setVisible(false);
+            azul_4.setVisible(false);
             azul_5.setVisible(false);
             azul_6.setVisible(false);
             azul_7.setVisible(false);
@@ -331,6 +348,7 @@ public class MainController implements SupervisorListener, GameStateListener {
             azul_1.setVisible(true);
             azul_2.setVisible(false);
             azul_3.setVisible(false);
+            azul_4.setVisible(false);
             azul_5.setVisible(false);
             azul_6.setVisible(false);
             azul_7.setVisible(false);
@@ -349,6 +367,7 @@ public class MainController implements SupervisorListener, GameStateListener {
             //**
             azul_2.setVisible(true);
             azul_3.setVisible(false);
+            azul_4.setVisible(false);
             azul_5.setVisible(false);
             azul_6.setVisible(false);
             azul_7.setVisible(false);
@@ -367,6 +386,7 @@ public class MainController implements SupervisorListener, GameStateListener {
             azul_2.setVisible(false);
             //**
             azul_3.setVisible(true);
+            azul_4.setVisible(false);
             azul_5.setVisible(false);
             azul_6.setVisible(false);
             azul_7.setVisible(false);
@@ -417,7 +437,6 @@ public class MainController implements SupervisorListener, GameStateListener {
             //azul_final.setVisible(false);
         }
         if (indice_jugador1 == 6){
-            azul_inicio.setVisible(false);
             azul_inicio.setVisible(false);
             azul_0.setVisible(false);
             azul_1.setVisible(false);
@@ -572,18 +591,291 @@ public class MainController implements SupervisorListener, GameStateListener {
             //azul_final.setVisible(false);
         }
     }
+    @FXML
+    public void Movimiento_Rojo(int indice_jugador2){
+
+        //Valida posicion del jugador
+        if (indice_jugador2 == 0){
+            rojo_inicio.setVisible(false);
+            //**
+            rojo_0.setVisible(true);
+            rojo_1.setVisible(false);
+            rojo_2.setVisible(false);
+            rojo_3.setVisible(false);
+            rojo_4.setVisible(false);
+            rojo_5.setVisible(false);
+            rojo_6.setVisible(false);
+            rojo_7.setVisible(false);
+            rojo_8.setVisible(false);
+            rojo_9.setVisible(false);
+            rojo_10.setVisible(false);
+            rojo_11.setVisible(false);
+            rojo_12.setVisible(false);
+            rojo_13.setVisible(false);
+            //rojo_final.setVisible(false);
+        }
+        if (indice_jugador2 == 1){
+            rojo_inicio.setVisible(false);
+            rojo_0.setVisible(false);
+            //**
+            rojo_1.setVisible(true);
+            rojo_2.setVisible(false);
+            rojo_3.setVisible(false);
+            rojo_4.setVisible(false);
+            rojo_5.setVisible(false);
+            rojo_6.setVisible(false);
+            rojo_7.setVisible(false);
+            rojo_8.setVisible(false);
+            rojo_9.setVisible(false);
+            rojo_10.setVisible(false);
+            rojo_11.setVisible(false);
+            rojo_12.setVisible(false);
+            rojo_13.setVisible(false);
+            //rojo_final.setVisible(false);
+        }
+        if (indice_jugador2 == 2){
+            rojo_inicio.setVisible(false);
+            rojo_0.setVisible(false);
+            rojo_1.setVisible(false);
+            //**
+            rojo_2.setVisible(true);
+            rojo_3.setVisible(false);
+            rojo_4.setVisible(false);
+            rojo_5.setVisible(false);
+            rojo_6.setVisible(false);
+            rojo_7.setVisible(false);
+            rojo_8.setVisible(false);
+            rojo_9.setVisible(false);
+            rojo_10.setVisible(false);
+            rojo_11.setVisible(false);
+            rojo_12.setVisible(false);
+            rojo_13.setVisible(false);
+            //rojo_final.setVisible(false);
+        }
+        if (indice_jugador2 == 3){
+            rojo_inicio.setVisible(false);
+            rojo_0.setVisible(false);
+            rojo_1.setVisible(false);
+            rojo_2.setVisible(false);
+            //**
+            rojo_3.setVisible(true);
+            rojo_4.setVisible(false);
+            rojo_5.setVisible(false);
+            rojo_6.setVisible(false);
+            rojo_7.setVisible(false);
+            rojo_8.setVisible(false);
+            rojo_9.setVisible(false);
+            rojo_10.setVisible(false);
+            rojo_11.setVisible(false);
+            rojo_12.setVisible(false);
+            rojo_13.setVisible(false);
+            //rojo_final.setVisible(false);
+        }
+        if (indice_jugador1 == 4){
+            rojo_inicio.setVisible(false);
+            rojo_0.setVisible(false);
+            rojo_1.setVisible(false);
+            rojo_2.setVisible(false);
+            rojo_3.setVisible(false);
+            //**
+            rojo_4.setVisible(true);
+            rojo_5.setVisible(false);
+            rojo_6.setVisible(false);
+            rojo_7.setVisible(false);
+            rojo_8.setVisible(false);
+            rojo_9.setVisible(false);
+            rojo_10.setVisible(false);
+            rojo_11.setVisible(false);
+            rojo_12.setVisible(false);
+            rojo_13.setVisible(false);
+            //rojo_final.setVisible(false);
+        }
+        if (indice_jugador2 == 5){
+            rojo_inicio.setVisible(false);
+            rojo_0.setVisible(false);
+            rojo_1.setVisible(false);
+            rojo_2.setVisible(false);
+            rojo_3.setVisible(false);
+            rojo_4.setVisible(false);
+            //**
+            rojo_5.setVisible(true);
+            rojo_6.setVisible(false);
+            rojo_7.setVisible(false);
+            rojo_8.setVisible(false);
+            rojo_9.setVisible(false);
+            rojo_10.setVisible(false);
+            rojo_11.setVisible(false);
+            rojo_12.setVisible(false);
+            rojo_13.setVisible(false);
+            //rojo_final.setVisible(false);
+        }
+        if (indice_jugador2 == 6){
+            rojo_inicio.setVisible(false);
+            rojo_0.setVisible(false);
+            rojo_1.setVisible(false);
+            rojo_2.setVisible(false);
+            rojo_3.setVisible(false);
+            rojo_4.setVisible(false);
+            rojo_5.setVisible(false);
+            //**
+            rojo_6.setVisible(true);
+            rojo_7.setVisible(false);
+            rojo_8.setVisible(false);
+            rojo_9.setVisible(false);
+            rojo_10.setVisible(false);
+            rojo_11.setVisible(false);
+            rojo_12.setVisible(false);
+            rojo_13.setVisible(false);
+            //rojo_final.setVisible(false);
+        }
+        if (indice_jugador2 == 7){
+            rojo_inicio.setVisible(false);
+            rojo_0.setVisible(false);
+            rojo_1.setVisible(false);
+            rojo_2.setVisible(false);
+            rojo_3.setVisible(false);
+            rojo_4.setVisible(false);
+            rojo_5.setVisible(false);
+            rojo_6.setVisible(false);
+            //**
+            rojo_7.setVisible(true);
+            rojo_8.setVisible(false);
+            rojo_9.setVisible(false);
+            rojo_10.setVisible(false);
+            rojo_11.setVisible(false);
+            rojo_12.setVisible(false);
+            rojo_13.setVisible(false);
+            //rojo_final.setVisible(false);
+        }
+        if (indice_jugador2 == 8){
+            rojo_inicio.setVisible(false);
+            rojo_0.setVisible(false);
+            rojo_1.setVisible(false);
+            rojo_2.setVisible(false);
+            rojo_3.setVisible(false);
+            rojo_4.setVisible(false);
+            rojo_5.setVisible(false);
+            rojo_6.setVisible(false);
+            rojo_7.setVisible(false);
+            //**
+            rojo_8.setVisible(true);
+            rojo_9.setVisible(false);
+            rojo_10.setVisible(false);
+            rojo_11.setVisible(false);
+            rojo_12.setVisible(false);
+            rojo_13.setVisible(false);
+            //rojo_final.setVisible(false);
+        }
+
+        if (indice_jugador2 == 9){
+            rojo_inicio.setVisible(false);
+            rojo_0.setVisible(false);
+            rojo_1.setVisible(false);
+            rojo_2.setVisible(false);
+            rojo_3.setVisible(false);
+            rojo_4.setVisible(false);
+            rojo_5.setVisible(false);
+            rojo_6.setVisible(false);
+            rojo_7.setVisible(false);
+            rojo_8.setVisible(false);
+            //**
+            rojo_9.setVisible(true);
+            rojo_10.setVisible(false);
+            rojo_11.setVisible(false);
+            rojo_12.setVisible(false);
+            rojo_13.setVisible(false);
+            //rojo_final.setVisible(false);
+
+        }
+        if (indice_jugador2 == 10){
+            rojo_inicio.setVisible(false);
+            rojo_0.setVisible(false);
+            rojo_1.setVisible(false);
+            rojo_2.setVisible(false);
+            rojo_3.setVisible(false);
+            rojo_4.setVisible(false);
+            rojo_5.setVisible(false);
+            rojo_6.setVisible(false);
+            rojo_7.setVisible(false);
+            rojo_8.setVisible(false);
+            rojo_9.setVisible(false);
+            //**
+            rojo_10.setVisible(true);
+            rojo_11.setVisible(false);
+            rojo_12.setVisible(false);
+            rojo_13.setVisible(false);
+            //rojo_final.setVisible(false);
+        }
+        if (indice_jugador2 == 11){
+            rojo_inicio.setVisible(false);
+            rojo_0.setVisible(false);
+            rojo_1.setVisible(false);
+            rojo_2.setVisible(false);
+            rojo_3.setVisible(false);
+            rojo_4.setVisible(false);
+            rojo_5.setVisible(false);
+            rojo_6.setVisible(false);
+            rojo_7.setVisible(false);
+            rojo_8.setVisible(false);
+            rojo_9.setVisible(false);
+            rojo_10.setVisible(false);
+            //**
+            rojo_11.setVisible(true);
+            rojo_12.setVisible(false);
+            rojo_13.setVisible(false);
+            //rojo_final.setVisible(false);
+        }
+        if (indice_jugador2 == 12){
+            rojo_inicio.setVisible(false);
+            rojo_0.setVisible(false);
+            rojo_1.setVisible(false);
+            rojo_2.setVisible(false);
+            rojo_3.setVisible(false);
+            rojo_4.setVisible(false);
+            rojo_5.setVisible(false);
+            rojo_6.setVisible(false);
+            rojo_7.setVisible(false);
+            rojo_8.setVisible(false);
+            rojo_9.setVisible(false);
+            rojo_10.setVisible(false);
+            rojo_11.setVisible(false);
+            //**
+            rojo_12.setVisible(true);
+            rojo_13.setVisible(false);
+            //rojo_final.setVisible(false);
+        }
+        if (indice_jugador2 == 13){
+            rojo_inicio.setVisible(false);
+            rojo_0.setVisible(false);
+            rojo_1.setVisible(false);
+            rojo_2.setVisible(false);
+            rojo_3.setVisible(false);
+            rojo_4.setVisible(false);
+            rojo_5.setVisible(false);
+            rojo_6.setVisible(false);
+            rojo_7.setVisible(false);
+            rojo_8.setVisible(false);
+            rojo_9.setVisible(false);
+            rojo_10.setVisible(false);
+            rojo_11.setVisible(false);
+            rojo_12.setVisible(false);
+            //**
+            rojo_13.setVisible(true);
+            //rojo_final.setVisible(false);
+        }
+    }
 
     @FXML
     public void lanzarDados(javafx.event.ActionEvent actionEvent) throws InterruptedException {
         if (pase_Trampa == 0) {
             System.out.println("Lanzamiento de Dado");
             num_lanzado = fn.Lanzar_Dado(); //Hace funcionar el dado
-            label.setText(num_lanzado +" " + "casillas");
+            label.setText(num_lanzado + " " + "casillas");
             System.out.println(num_lanzado);
         }
 
         //solo valida la vuelta
-        if (pase_Trampa == 1){
+        if (pase_Trampa == 1) {
             pase_Trampa = 0;
         }
 
@@ -604,6 +896,7 @@ public class MainController implements SupervisorListener, GameStateListener {
                 //Funcion para el movimiento
                 Movimiento_Azul(indice_jugador1);
 
+
             } else {
                 // Validacion si el mayor a los numeros en lista
                 if (indice_jugador1 + num_lanzado > 13) {
@@ -618,8 +911,8 @@ public class MainController implements SupervisorListener, GameStateListener {
                     //Suma de la variable normal
                     if (indice_jugador1 + num_lanzado < 0) {
                         indice_jugador1 = 0;
-                        azul_inicio.setVisible(true);
-                        azul_0.setVisible(false);
+                        azul_inicio.setVisible(false);
+                        azul_0.setVisible(true);
                         azul_1.setVisible(false);
                         azul_2.setVisible(false);
                     } else {
@@ -688,37 +981,43 @@ public class MainController implements SupervisorListener, GameStateListener {
                 retoLabel.setText(nombre_casilla);
                 textoReto.setText(numReto1 + " " + "*" + " " + numReto2);
 
-            }if (nombre_casilla.equals("Reto2")) {
+            }
+            if (nombre_casilla.equals("Reto2")) {
                 numReto1 = fn.randomReto();
                 numReto2 = fn.randomReto();
                 resultado = numReto1 + numReto2;
                 retoLabel.setText(nombre_casilla);
                 textoReto.setText(numReto1 + " " + "+" + " " + numReto2);
-            }if (nombre_casilla.equals("Reto3")) {
+            }
+            if (nombre_casilla.equals("Reto3")) {
                 numReto1 = fn.randomReto();
                 numReto2 = fn.randomReto();
                 resultado = numReto1 - numReto2;
                 retoLabel.setText(nombre_casilla);
                 textoReto.setText(numReto1 + " " + "-" + " " + numReto2);
-            }if (nombre_casilla.equals("Reto4")) {
+            }
+            if (nombre_casilla.equals("Reto4")) {
                 numReto1 = fn.randomReto();
                 numReto2 = fn.randomReto();
                 resultado = numReto1 / numReto2;
                 retoLabel.setText(nombre_casilla);
                 textoReto.setText(numReto1 + " " + "/" + " " + numReto2);
-            }if (nombre_casilla.equals("Reto5")) {
+            }
+            if (nombre_casilla.equals("Reto5")) {
                 numReto1 = fn.randomReto();
                 numReto2 = fn.randomReto();
                 resultado = numReto1 * numReto2;
                 retoLabel.setText(nombre_casilla);
                 textoReto.setText(numReto1 + " " + "*" + " " + numReto2);
-            }if (nombre_casilla.equals("Reto6")) {
+            }
+            if (nombre_casilla.equals("Reto6")) {
                 numReto1 = fn.randomReto();
                 numReto2 = fn.randomReto();
-                resultado = numReto1/numReto2;
+                resultado = numReto1 / numReto2;
                 retoLabel.setText(nombre_casilla);
                 textoReto.setText(numReto1 + " " + "/" + " " + numReto2);
-            }if (nombre_casilla.equals("Reto7")) {
+            }
+            if (nombre_casilla.equals("Reto7")) {
                 numReto1 = fn.randomReto();
                 numReto2 = fn.randomReto();
                 resultado = numReto1 - numReto2;
@@ -727,19 +1026,152 @@ public class MainController implements SupervisorListener, GameStateListener {
             }
 
 
-                //imprime la casilla en la que estoy
+            //imprime la casilla en la que estoy
             label_tipo_casilla.setText(nombre_casilla);
 
-        }else if (num_jugador == 1){
-            num_jugador --;
+        } else if (num_jugador == 1) {
+            num_jugador--;
+            if (pase == 0) {
+                //Solo sucede la primera vez
+                indice_jugador1 = num_lanzado - 1;
+                pase++;
+
+                //Funcion para el movimiento
+                Movimiento_Azul(indice_jugador1);
+
+
+            } else {
+
+                System.out.println("Lanzo el jugador 2");
+
+                System.out.println(tablero.get(num_lanzado - 1));
+                if (indice_jugador2 + num_lanzado > 13) {
+                    indice_jugador2 = 13;
+                    rojo_9.setVisible(false);
+                    rojo_10.setVisible(false);
+                    rojo_11.setVisible(false);
+                    rojo_12.setVisible(false);
+                    rojo_13.setVisible(false);
+                    rojo_final.setVisible(true);
+                } else {
+                    //Suma de la variable normal
+                    if (indice_jugador2 + num_lanzado < 0) {
+                        indice_jugador2 = 0;
+                        rojo_inicio.setVisible(false);
+                        rojo_0.setVisible(true);
+                        rojo_1.setVisible(false);
+                        rojo_2.setVisible(false);
+                    } else {
+                        indice_jugador2 = indice_jugador2 + (num_lanzado);
+
+                        //Funcion para el movimiento
+                        Movimiento_Rojo(indice_jugador2);
+                    }
+                }
+            }
+
             System.out.println("Lanzo el jugador 2");
-            //label_jugador.setText("Jugador 2");
-            //label_jugador.setStyle("-fx-background-color: Red");
-            System.out.println(tablero.get(num_lanzado-1));
+            nombre_casilla = tablero.get(indice_jugador2);
+            System.out.println(nombre_casilla);
+
+            //Validacion de las trampas
+            if (nombre_casilla.equals("Trampa")) {
+                if (flagTrampa == 1) {
+                    flagTrampa = 0;
+                    lanzarDados(actionEvent);
+
+                } else {
+                    //Se habilita el boton de trampa
+                    //btn_trampa.setVisible(true);
+                    pase_Trampa = 1;
+                    num_lanzado = -3;
+                    num_jugador = 1;
+                    flagTrampa = 1;
+                    lanzarDados(actionEvent);
+                    btn_trampa.setVisible(false);
+                    System.out.println("**");
+                    System.out.println("Flag Trampa" + flagTrampa);
+
+                }
+
+            }
+            //Validacion del tunel
+            if (nombre_casilla.equals("Tunel")) {
+                numTunel = fn.randomTunel();
+                if (indice_jugador2 + numTunel < 13) {
+                    //Se habilita el boton de trampa
+                    //btn_trampa.setVisible(true);
+                    pase_Trampa = 1;
+                    num_lanzado = numTunel;
+                    num_jugador = 1;
+                    lanzarDados(actionEvent);
+                    System.out.println("**");
+                } else {
+                    indice_jugador2 = 13;
+                    rojo_9.setVisible(false);
+                    rojo_10.setVisible(false);
+                    rojo_11.setVisible(false);
+                    rojo_12.setVisible(false);
+                    rojo_13.setVisible(false);
+                    rojo_final.setVisible(true);
+
+                }
+
+            }
+            if (nombre_casilla.equals("Reto1")) {
+                numReto1 = fn.randomReto();
+                numReto2 = fn.randomReto();
+                resultado = numReto1 * numReto2;
+                retoLabel.setText(nombre_casilla);
+                textoReto.setText(numReto1 + " " + "*" + " " + numReto2);
+
+            }
+            if (nombre_casilla.equals("Reto2")) {
+                numReto1 = fn.randomReto();
+                numReto2 = fn.randomReto();
+                resultado = numReto1 + numReto2;
+                retoLabel.setText(nombre_casilla);
+                textoReto.setText(numReto1 + " " + "+" + " " + numReto2);
+            }
+            if (nombre_casilla.equals("Reto3")) {
+                numReto1 = fn.randomReto();
+                numReto2 = fn.randomReto();
+                resultado = numReto1 - numReto2;
+                retoLabel.setText(nombre_casilla);
+                textoReto.setText(numReto1 + " " + "-" + " " + numReto2);
+            }
+            if (nombre_casilla.equals("Reto4")) {
+                numReto1 = fn.randomReto();
+                numReto2 = fn.randomReto();
+                resultado = numReto1 / numReto2;
+                retoLabel.setText(nombre_casilla);
+                textoReto.setText(numReto1 + " " + "/" + " " + numReto2);
+            }
+            if (nombre_casilla.equals("Reto5")) {
+                numReto1 = fn.randomReto();
+                numReto2 = fn.randomReto();
+                resultado = numReto1 * numReto2;
+                retoLabel.setText(nombre_casilla);
+                textoReto.setText(numReto1 + " " + "*" + " " + numReto2);
+            }
+            if (nombre_casilla.equals("Reto6")) {
+                numReto1 = fn.randomReto();
+                numReto2 = fn.randomReto();
+                resultado = numReto1 / numReto2;
+                retoLabel.setText(nombre_casilla);
+                textoReto.setText(numReto1 + " " + "/" + " " + numReto2);
+            }
+            if (nombre_casilla.equals("Reto7")) {
+                numReto1 = fn.randomReto();
+                numReto2 = fn.randomReto();
+                resultado = numReto1 - numReto2;
+                retoLabel.setText(nombre_casilla);
+                textoReto.setText(numReto1 + " " + "-" + " " + numReto2);
+            }
 
         }
-
     }
+
     public void confirmarRespuesta(javafx.event.ActionEvent actionEvent) throws InterruptedException {
         if (resultado == Integer.parseInt(respuesta.getText())){
             resultadoReto.setText("Respuesta Correcta");
