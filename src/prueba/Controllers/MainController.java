@@ -11,6 +11,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 import prueba.Game.Game;
 import prueba.Game.GameState;
 import prueba.Game.GameStateListener;
@@ -49,8 +50,12 @@ public class MainController implements SupervisorListener, GameStateListener {
     @FXML public TextField peerHost;
     @FXML public TextField peerPort;
     @FXML public Button buttonM;
-
+    @FXML public Label textoReto;
     @FXML public Button azul_inicio;
+    @FXML public Label retoLabel;
+    @FXML public Button confirmarRespuesta;
+    @FXML public TextField respuesta;
+    @FXML public Label resultadoReto;
     @FXML public Button azul_0;
     @FXML public Button azul_1;
     @FXML public Button azul_2;
@@ -88,6 +93,9 @@ public class MainController implements SupervisorListener, GameStateListener {
     int num_lanzado = 0;
     int num_jugador = 0;
     int numTunel = 0;
+    int numReto1 = 0;
+    int numReto2 = 0;
+    int resultado = 0;
 
     int flagTrampa = 0;
 
@@ -113,7 +121,7 @@ public class MainController implements SupervisorListener, GameStateListener {
         try
         {
             parent = fxmlLoader.load();
-            scene = new Scene(parent, 700, 500);
+            scene = new Scene(parent, 648, 478);
         }
         catch (IOException e) {
             System.out.println("Something went wrong instantiating MainController e:" + e.toString());
@@ -584,21 +592,21 @@ public class MainController implements SupervisorListener, GameStateListener {
         //cambio de variables
         //indice donde se posiciona
 
-        if (num_jugador == 0){
+        if (num_jugador == 0) {
             num_jugador++;
 
             //****************
-            if (pase == 0){
+            if (pase == 0) {
                 //Solo sucede la primera vez
                 indice_jugador1 = num_lanzado - 1;
-                pase ++;
+                pase++;
 
                 //Funcion para el movimiento
                 Movimiento_Azul(indice_jugador1);
 
-            }else {
+            } else {
                 // Validacion si el mayor a los numeros en lista
-                if (indice_jugador1 + num_lanzado > 13){
+                if (indice_jugador1 + num_lanzado > 13) {
                     indice_jugador1 = 13;
                     azul_9.setVisible(false);
                     azul_10.setVisible(false);
@@ -606,15 +614,15 @@ public class MainController implements SupervisorListener, GameStateListener {
                     azul_12.setVisible(false);
                     azul_13.setVisible(false);
                     azul_final.setVisible(true);
-                }else {
+                } else {
                     //Suma de la variable normal
-                    if (indice_jugador1 + num_lanzado < 0){
+                    if (indice_jugador1 + num_lanzado < 0) {
                         indice_jugador1 = 0;
                         azul_inicio.setVisible(true);
                         azul_0.setVisible(false);
                         azul_1.setVisible(false);
                         azul_2.setVisible(false);
-                    }else {
+                    } else {
                         indice_jugador1 = indice_jugador1 + (num_lanzado);
 
                         //Funcion para el movimiento
@@ -630,12 +638,12 @@ public class MainController implements SupervisorListener, GameStateListener {
             System.out.println(nombre_casilla);
 
             //Validacion de las trampas
-            if (nombre_casilla.equals("Trampa")){
+            if (nombre_casilla.equals("Trampa")) {
                 if (flagTrampa == 1) {
                     flagTrampa = 0;
                     lanzarDados(actionEvent);
 
-                }else{
+                } else {
                     //Se habilita el boton de trampa
                     //btn_trampa.setVisible(true);
                     pase_Trampa = 1;
@@ -651,7 +659,7 @@ public class MainController implements SupervisorListener, GameStateListener {
 
             }
             //Validacion del tunel
-            if (nombre_casilla.equals("Tunel")){
+            if (nombre_casilla.equals("Tunel")) {
                 numTunel = fn.randomTunel();
                 if (indice_jugador1 + numTunel < 13) {
                     //Se habilita el boton de trampa
@@ -661,7 +669,7 @@ public class MainController implements SupervisorListener, GameStateListener {
                     num_jugador = 0;
                     lanzarDados(actionEvent);
                     System.out.println("**");
-                }else{
+                } else {
                     indice_jugador1 = 13;
                     azul_9.setVisible(false);
                     azul_10.setVisible(false);
@@ -673,9 +681,53 @@ public class MainController implements SupervisorListener, GameStateListener {
                 }
 
             }
+            if (nombre_casilla.equals("Reto1")) {
+                numReto1 = fn.randomReto();
+                numReto2 = fn.randomReto();
+                resultado = numReto1 * numReto2;
+                retoLabel.setText(nombre_casilla);
+                textoReto.setText(numReto1 + " " + "*" + " " + numReto2);
+
+            }if (nombre_casilla.equals("Reto2")) {
+                numReto1 = fn.randomReto();
+                numReto2 = fn.randomReto();
+                resultado = numReto1 + numReto2;
+                retoLabel.setText(nombre_casilla);
+                textoReto.setText(numReto1 + " " + "+" + " " + numReto2);
+            }if (nombre_casilla.equals("Reto3")) {
+                numReto1 = fn.randomReto();
+                numReto2 = fn.randomReto();
+                resultado = numReto1 - numReto2;
+                retoLabel.setText(nombre_casilla);
+                textoReto.setText(numReto1 + " " + "-" + " " + numReto2);
+            }if (nombre_casilla.equals("Reto4")) {
+                numReto1 = fn.randomReto();
+                numReto2 = fn.randomReto();
+                resultado = numReto1 / numReto2;
+                retoLabel.setText(nombre_casilla);
+                textoReto.setText(numReto1 + " " + "/" + " " + numReto2);
+            }if (nombre_casilla.equals("Reto5")) {
+                numReto1 = fn.randomReto();
+                numReto2 = fn.randomReto();
+                resultado = numReto1 * numReto2;
+                retoLabel.setText(nombre_casilla);
+                textoReto.setText(numReto1 + " " + "*" + " " + numReto2);
+            }if (nombre_casilla.equals("Reto6")) {
+                numReto1 = fn.randomReto();
+                numReto2 = fn.randomReto();
+                resultado = numReto1/numReto2;
+                retoLabel.setText(nombre_casilla);
+                textoReto.setText(numReto1 + " " + "/" + " " + numReto2);
+            }if (nombre_casilla.equals("Reto7")) {
+                numReto1 = fn.randomReto();
+                numReto2 = fn.randomReto();
+                resultado = numReto1 - numReto2;
+                retoLabel.setText(nombre_casilla);
+                textoReto.setText(numReto1 + " " + "-" + " " + numReto2);
+            }
 
 
-            //imprime la casilla en la que estoy
+                //imprime la casilla en la que estoy
             label_tipo_casilla.setText(nombre_casilla);
 
         }else if (num_jugador == 1){
@@ -684,7 +736,21 @@ public class MainController implements SupervisorListener, GameStateListener {
             //label_jugador.setText("Jugador 2");
             //label_jugador.setStyle("-fx-background-color: Red");
             System.out.println(tablero.get(num_lanzado-1));
+
         }
 
     }
+    public void confirmarRespuesta(javafx.event.ActionEvent actionEvent) throws InterruptedException {
+        if (resultado == Integer.parseInt(respuesta.getText())){
+            resultadoReto.setText("Respuesta Correcta");
+        }else{
+            pase_Trampa = 1;
+            num_lanzado = -1;
+            num_jugador = 0;
+            lanzarDados(actionEvent);
+            resultadoReto.setText("Devuelvase un espacio");
+
+        }
+    }
+
 }

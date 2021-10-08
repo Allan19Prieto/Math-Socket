@@ -128,6 +128,7 @@ public class WelcomeController implements Initializable {
 
                     mainController.setNetworkManager(manager);
                     mainController.displayScene(username, listeningPort.toString());
+
                 }
                 catch (IOException e)
                 {

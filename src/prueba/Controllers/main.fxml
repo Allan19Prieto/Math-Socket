@@ -12,7 +12,7 @@
 <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
 
     <SplitPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="480.0" prefWidth="650.0">
-        <AnchorPane>
+        <AnchorPane fx:id="label_jugador">
             <Label layoutX="116.0" layoutY="175.0" minHeight="16" minWidth="59.0" prefHeight="17.0" prefWidth="59.0" text="Muevete" />
             <Label id="labelUsername" fx:id="labelUsername" layoutX="28.0" layoutY="20.0" minHeight="16" minWidth="69" text="Username" textFill="#161515" />
             <Label id="labelId" fx:id="labelId" layoutX="28.0" layoutY="51.0" prefHeight="17.0" prefWidth="68.0" text="ID" />
@@ -30,6 +30,11 @@
             <Label layoutX="34.0" layoutY="426.0" text="Se encuentra en la casilla: " />
             <Label id="label_tipo_casilla" fx:id="label_tipo_casilla" layoutX="182.0" layoutY="426.0" text="Label" />
             <Button fx:id="btn_trampa" layoutX="231.0" layoutY="434.0" text="trampa -retrocede 3 casillas" visible="false" />
+            <Label id="label" fx:id="label" layoutX="175.0" layoutY="175.0" prefHeight="17.0" prefWidth="59.0" style="-fx-background-color: Black;" textFill="WHITE" />
+            <Label fx:id="textoReto" layoutX="558.0" layoutY="147.0" prefHeight="17.0" prefWidth="46.0" style="-fx-background-color: Black;" textFill="WHITE" />
+            <Label fx:id="retoLabel" layoutX="514.0" layoutY="147.0" prefHeight="17.0" prefWidth="33.0" style="-fx-background-color: Black;" textFill="WHITE" />
+            <TextField fx:id="respuesta" layoutX="522.0" layoutY="179.0" prefHeight="26.0" prefWidth="59.0" />
+            <Button fx:id="ok" layoutX="529.0" layoutY="213.0" mnemonicParsing="false" onAction="#confirmarRespuesta" prefHeight="26.0" prefWidth="46.0" text="Ok" />
             <!-- Bloque de los tableros -->
             <Pane fx:id="Tablero" layoutX="121.0" layoutY="205.0" prefHeight="229.0" prefWidth="389.0" visible="true">
                 <children>
@@ -86,7 +91,7 @@
                     <Button layoutX="337.0" layoutY="152.0" mnemonicParsing="false" style="-fx-background-color: Red; -fx-background-radius: 5em; -fx-min-width: 12px; -fx-min-height: 12px; -fx-max-width: 12px; -fx-max-height: 12px; " />
                 </children>
             </Pane>
-         <Label id="label" fx:id="label" layoutX="176.0" layoutY="175.0" prefHeight="17.0" prefWidth="59.0" style="-fx-background-color: Black;" textFill="WHITE" />
+         <Label fx:id="resultadoReto" layoutX="458.0" layoutY="121.0" prefHeight="17.0" prefWidth="169.0" style="-fx-background-color: Black;" textFill="WHITE" />
         </AnchorPane>
     </SplitPane>
 
