@@ -618,11 +618,22 @@ public class MainController implements SupervisorListener, GameStateListener {
         if (resultado == Integer.parseInt(respuesta.getText())){
             resultadoReto.setText("Respuesta Correcta");
         }else{
-            pase_Trampa = 1;
-            num_lanzado = -1;
-            num_jugador = 0;
-            lanzarDados(actionEvent);
-            resultadoReto.setText("Devuelvase un espacio");
+            if (num_jugador == 0) {
+                pase_Trampa = 1;
+                num_lanzado = -1;
+                num_jugador = 0;
+                lanzarDados(actionEvent);
+                respuesta.setText("");
+                resultadoReto.setText("Devuelvase un espacio");
+            }else{
+                pase_Trampa = 1;
+                num_lanzado = -1;
+                num_jugador = 1;
+                lanzarDados(actionEvent);
+                respuesta.setText("");
+                resultadoReto.setText("Devuelvase un espacio");
+            }
+
 
         }
     }
