@@ -8,6 +8,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
 
 <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
 
@@ -74,24 +75,28 @@
                     <Button fx:id="azul_final" layoutX="307.0" layoutY="152.0" mnemonicParsing="false" style="-fx-background-color: Blue; -fx-background-radius: 5em; -fx-min-width: 12px; -fx-min-height: 12px; -fx-max-width: 12px; -fx-max-height: 12px; " visible="false" />
                     <!--Rojos-->
                     <Button fx:id="rojo_inicio" layoutX="52.0" layoutY="8.0" mnemonicParsing="false" style="-fx-background-color: Red; -fx-background-radius: 5em; -fx-min-width: 12px; -fx-min-height: 12px; -fx-max-width: 12px; -fx-max-height: 12px; " visible="true" />
-                    <Button fx:id="rojo_0" layoutX="128.0" layoutY="8.0" mnemonicParsing="false" style="-fx-background-color: Red; -fx-background-radius: 5em; -fx-min-width: 12px; -fx-min-height: 12px; -fx-max-width: 12px; -fx-max-height: 12px; " visible="false"/>
-                    <Button fx:id="rojo_1" layoutX="225.0" layoutY="8.0" mnemonicParsing="false" style="-fx-background-color: Red; -fx-background-radius: 5em; -fx-min-width: 12px; -fx-min-height: 12px; -fx-max-width: 12px; -fx-max-height: 12px; " visible="false"/>
-                    <Button fx:id="rojo_2" layoutX="325.0" layoutY="8.0" mnemonicParsing="false" style="-fx-background-color: Red; -fx-background-radius: 5em; -fx-min-width: 12px; -fx-min-height: 12px; -fx-max-width: 12px; -fx-max-height: 12px; " visible="false"/>
-                    <Button fx:id="rojo_3" layoutX="46.0" layoutY="60.0" mnemonicParsing="false" style="-fx-background-color: Red; -fx-background-radius: 5em; -fx-min-width: 12px; -fx-min-height: 12px; -fx-max-width: 12px; -fx-max-height: 12px; " visible="false"/>
-                    <Button fx:id="rojo_4" layoutX="128.0" layoutY="60.0" mnemonicParsing="false" style="-fx-background-color: Red; -fx-background-radius: 5em; -fx-min-width: 12px; -fx-min-height: 12px; -fx-max-width: 12px; -fx-max-height: 12px; " visible="false"/>
-                    <Button fx:id="rojo_5" layoutX="225.0" layoutY="60.0" mnemonicParsing="false" style="-fx-background-color: Red; -fx-background-radius: 5em; -fx-min-width: 12px; -fx-min-height: 12px; -fx-max-width: 12px; -fx-max-height: 12px; " visible="false"/>
-                    <Button fx:id="rojo_6" layoutX="325.0" layoutY="60.0" mnemonicParsing="false" style="-fx-background-color: Red; -fx-background-radius: 5em; -fx-min-width: 12px; -fx-min-height: 12px; -fx-max-width: 12px; -fx-max-height: 12px; " visible="false"/>
-                    <Button fx:id="rojo_7" layoutX="46.0" layoutY="108.0" mnemonicParsing="false" style="-fx-background-color: Red; -fx-background-radius: 5em; -fx-min-width: 12px; -fx-min-height: 12px; -fx-max-width: 12px; -fx-max-height: 12px; " visible="false"/>
-                    <Button fx:id="rojo_8" layoutX="128.0" layoutY="108.0" mnemonicParsing="false" style="-fx-background-color: Red; -fx-background-radius: 5em; -fx-min-width: 12px; -fx-min-height: 12px; -fx-max-width: 12px; -fx-max-height: 12px; " visible="false"/>
-                    <Button fx:id="rojo_9" layoutX="228.0" layoutY="109.0" mnemonicParsing="false" style="-fx-background-color: Red; -fx-background-radius: 5em; -fx-min-width: 12px; -fx-min-height: 12px; -fx-max-width: 12px; -fx-max-height: 12px; " visible="false"/>
-                    <Button fx:id="rojo_10" layoutX="325.0" layoutY="108.0" mnemonicParsing="false" style="-fx-background-color: Red; -fx-background-radius: 5em; -fx-min-width: 12px; -fx-min-height: 12px; -fx-max-width: 12px; -fx-max-height: 12px; " visible="false"/>
-                    <Button fx:id="rojo_11" layoutX="46.0" layoutY="152.0" mnemonicParsing="false" style="-fx-background-color: Red; -fx-background-radius: 5em; -fx-min-width: 12px; -fx-min-height: 12px; -fx-max-width: 12px; -fx-max-height: 12px; " visible="false"/>
-                    <Button fx:id="rojo_12" layoutX="128.0" layoutY="152.0" mnemonicParsing="false" style="-fx-background-color: Red; -fx-background-radius: 5em; -fx-min-width: 12px; -fx-min-height: 12px; -fx-max-width: 12px; -fx-max-height: 12px; " visible="false"/>
-                    <Button fx:id="rojo_13" layoutX="231.0" layoutY="152.0" mnemonicParsing="false" style="-fx-background-color: Red; -fx-background-radius: 5em; -fx-min-width: 12px; -fx-min-height: 12px; -fx-max-width: 12px; -fx-max-height: 12px; " visible="false"/>
-                    <Button fx:id="rojo_final" layoutX="337.0" layoutY="152.0" mnemonicParsing="false" style="-fx-background-color: Red; -fx-background-radius: 5em; -fx-min-width: 12px; -fx-min-height: 12px; -fx-max-width: 12px; -fx-max-height: 12px; " visible="false"/>
+                    <Button fx:id="rojo_0" layoutX="128.0" layoutY="8.0" mnemonicParsing="false" style="-fx-background-color: Red; -fx-background-radius: 5em; -fx-min-width: 12px; -fx-min-height: 12px; -fx-max-width: 12px; -fx-max-height: 12px; " visible="false" />
+                    <Button fx:id="rojo_1" layoutX="225.0" layoutY="8.0" mnemonicParsing="false" style="-fx-background-color: Red; -fx-background-radius: 5em; -fx-min-width: 12px; -fx-min-height: 12px; -fx-max-width: 12px; -fx-max-height: 12px; " visible="false" />
+                    <Button fx:id="rojo_2" layoutX="325.0" layoutY="8.0" mnemonicParsing="false" style="-fx-background-color: Red; -fx-background-radius: 5em; -fx-min-width: 12px; -fx-min-height: 12px; -fx-max-width: 12px; -fx-max-height: 12px; " visible="false" />
+                    <Button fx:id="rojo_3" layoutX="46.0" layoutY="60.0" mnemonicParsing="false" style="-fx-background-color: Red; -fx-background-radius: 5em; -fx-min-width: 12px; -fx-min-height: 12px; -fx-max-width: 12px; -fx-max-height: 12px; " visible="false" />
+                    <Button fx:id="rojo_4" layoutX="128.0" layoutY="60.0" mnemonicParsing="false" style="-fx-background-color: Red; -fx-background-radius: 5em; -fx-min-width: 12px; -fx-min-height: 12px; -fx-max-width: 12px; -fx-max-height: 12px; " visible="false" />
+                    <Button fx:id="rojo_5" layoutX="225.0" layoutY="60.0" mnemonicParsing="false" style="-fx-background-color: Red; -fx-background-radius: 5em; -fx-min-width: 12px; -fx-min-height: 12px; -fx-max-width: 12px; -fx-max-height: 12px; " visible="false" />
+                    <Button fx:id="rojo_6" layoutX="325.0" layoutY="60.0" mnemonicParsing="false" style="-fx-background-color: Red; -fx-background-radius: 5em; -fx-min-width: 12px; -fx-min-height: 12px; -fx-max-width: 12px; -fx-max-height: 12px; " visible="false" />
+                    <Button fx:id="rojo_7" layoutX="46.0" layoutY="108.0" mnemonicParsing="false" style="-fx-background-color: Red; -fx-background-radius: 5em; -fx-min-width: 12px; -fx-min-height: 12px; -fx-max-width: 12px; -fx-max-height: 12px; " visible="false" />
+                    <Button fx:id="rojo_8" layoutX="128.0" layoutY="108.0" mnemonicParsing="false" style="-fx-background-color: Red; -fx-background-radius: 5em; -fx-min-width: 12px; -fx-min-height: 12px; -fx-max-width: 12px; -fx-max-height: 12px; " visible="false" />
+                    <Button fx:id="rojo_9" layoutX="228.0" layoutY="109.0" mnemonicParsing="false" style="-fx-background-color: Red; -fx-background-radius: 5em; -fx-min-width: 12px; -fx-min-height: 12px; -fx-max-width: 12px; -fx-max-height: 12px; " visible="false" />
+                    <Button fx:id="rojo_10" layoutX="325.0" layoutY="108.0" mnemonicParsing="false" style="-fx-background-color: Red; -fx-background-radius: 5em; -fx-min-width: 12px; -fx-min-height: 12px; -fx-max-width: 12px; -fx-max-height: 12px; " visible="false" />
+                    <Button fx:id="rojo_11" layoutX="46.0" layoutY="152.0" mnemonicParsing="false" style="-fx-background-color: Red; -fx-background-radius: 5em; -fx-min-width: 12px; -fx-min-height: 12px; -fx-max-width: 12px; -fx-max-height: 12px; " visible="false" />
+                    <Button fx:id="rojo_12" layoutX="128.0" layoutY="152.0" mnemonicParsing="false" style="-fx-background-color: Red; -fx-background-radius: 5em; -fx-min-width: 12px; -fx-min-height: 12px; -fx-max-width: 12px; -fx-max-height: 12px; " visible="false" />
+                    <Button fx:id="rojo_13" layoutX="231.0" layoutY="152.0" mnemonicParsing="false" style="-fx-background-color: Red; -fx-background-radius: 5em; -fx-min-width: 12px; -fx-min-height: 12px; -fx-max-width: 12px; -fx-max-height: 12px; " visible="false" />
+                    <Button fx:id="rojo_final" layoutX="337.0" layoutY="152.0" mnemonicParsing="false" style="-fx-background-color: Red; -fx-background-radius: 5em; -fx-min-width: 12px; -fx-min-height: 12px; -fx-max-width: 12px; -fx-max-height: 12px; " visible="false" />
                 </children>
             </Pane>
          <Label fx:id="resultadoReto" layoutX="458.0" layoutY="121.0" prefHeight="17.0" prefWidth="169.0" style="-fx-background-color: Black;" textFill="WHITE" />
+         <Label fx:id="labelGanador" layoutX="8.0" layoutY="9.0" prefHeight="411.0" prefWidth="648.0" style="-fx-background-color: Black;" textFill="WHITE" visible="false">
+            <font>
+               <Font size="61.0" />
+            </font></Label>
         </AnchorPane>
     </SplitPane>
 

@@ -88,6 +88,7 @@ public class MainController implements SupervisorListener, GameStateListener {
     @FXML public Button rojo_13;
     @FXML public Button rojo_final;
     @FXML public Button rojo_inicio;
+    @FXML public Label labelGanador;
 
     @FXML
     Button btn_1, btn_2, btn_3, btn_4, btn_5, btn_6, btn_7, btn_8, btn_9, btn_10, btn_11, btn_12, btn_13, btn_14;
@@ -114,11 +115,12 @@ public class MainController implements SupervisorListener, GameStateListener {
     int resultado = 0;
 
     int flagTrampa = 0;
-
+    int flagTrampa1 = 0;
     int indice_jugador1 = 0;
     int indice_jugador2 = 0;
     //Nombre de la casilla en la que se esta
     String nombre_casilla;
+    String nombre_casilla1;
 
     public MainController(Stage stage) {
         this.stage = stage;
@@ -317,7 +319,315 @@ public class MainController implements SupervisorListener, GameStateListener {
     }
 
 
-    //Para el movimiento del punto azul
+
+    @FXML
+    public void lanzarDados(javafx.event.ActionEvent actionEvent) throws InterruptedException {
+
+        if (pase_Trampa == 0) {
+            num_lanzado = fn.Lanzar_Dado(); //Hace funcionar el dado
+            label.setText(num_lanzado + " " + "casillas");
+            System.out.println(num_lanzado);
+        }
+
+        //solo valida la vuelta
+        if (pase_Trampa == 1) {
+            pase_Trampa = 0;
+        }
+        //solo para esta funcion
+        //Ejemplo cuando le da un jugador y luego el otro
+        //cambio de variables
+        //indice donde se posiciona
+
+        if (num_jugador == 0) {
+            num_jugador++;
+
+            //****************
+            if (pase == 0) {
+                //Solo sucede la primera vez
+                indice_jugador1 = num_lanzado - 1;
+                pase++;
+
+                //Funcion para el movimiento
+                Movimiento_Azul(indice_jugador1);
+
+
+            } else {
+                // Validacion si el mayor a los numeros en lista
+                if (indice_jugador1 + num_lanzado > 13) {
+                    indice_jugador1 = 13;
+                    azul_9.setVisible(false);
+                    azul_10.setVisible(false);
+                    azul_11.setVisible(false);
+                    azul_12.setVisible(false);
+                    azul_13.setVisible(false);
+                    azul_final.setVisible(true);
+                    labelGanador.setText("Felicidades jugador azul");
+                    labelGanador.setVisible(true);
+                } else {
+                    //Suma de la variable normal
+                    if (indice_jugador1 + num_lanzado < 0) {
+                        indice_jugador1 = 0;
+                        azul_inicio.setVisible(false);
+                        azul_0.setVisible(true);
+                        azul_1.setVisible(false);
+                        azul_2.setVisible(false);
+                    } else {
+                        indice_jugador1 = indice_jugador1 + (num_lanzado);
+
+                        //Funcion para el movimiento
+                        Movimiento_Azul(indice_jugador1);
+                    }
+                }
+            }
+
+            System.out.println("Lanzo el jugador 1");
+            //label_jugador.setText("Jugador 1");
+            //label_jugador.setStyle("-fx-background-color: Blue");
+            nombre_casilla = tablero.get(indice_jugador1);
+            System.out.println(nombre_casilla);
+
+            //Validacion de las trampas
+            if (nombre_casilla.equals("Trampa")) {
+                //Se habilita el boton de trampa
+                //btn_trampa.setVisible(true);
+                pase_Trampa = 1;
+                num_lanzado = -3;
+                num_jugador = 0;
+                lanzarDados(actionEvent);
+                btn_trampa.setVisible(false);
+
+
+            }
+            //Validacion del tunel
+            if (nombre_casilla.equals("Tunel")) {
+                numTunel = fn.randomTunel();
+                if (indice_jugador1 + numTunel < 13) {
+                    //Se habilita el boton de trampa
+                    //btn_trampa.setVisible(true);
+                    pase_Trampa = 1;
+                    num_lanzado = numTunel;
+                    num_jugador = 0;
+                    lanzarDados(actionEvent);
+                } else {
+                    indice_jugador1 = 13;
+                    azul_9.setVisible(false);
+                    azul_10.setVisible(false);
+                    azul_11.setVisible(false);
+                    azul_12.setVisible(false);
+                    azul_13.setVisible(false);
+                    azul_final.setVisible(true);
+
+                }
+
+            }
+            if (nombre_casilla.equals("Reto1")) {
+                numReto1 = fn.randomReto();
+                numReto2 = fn.randomReto();
+                resultado = numReto1 * numReto2;
+                retoLabel.setText(nombre_casilla);
+                textoReto.setText(numReto1 + " " + "*" + " " + numReto2);
+
+            }
+            if (nombre_casilla.equals("Reto2")) {
+                numReto1 = fn.randomReto();
+                numReto2 = fn.randomReto();
+                resultado = numReto1 + numReto2;
+                retoLabel.setText(nombre_casilla);
+                textoReto.setText(numReto1 + " " + "+" + " " + numReto2);
+            }
+            if (nombre_casilla.equals("Reto3")) {
+                numReto1 = fn.randomReto();
+                numReto2 = fn.randomReto();
+                resultado = numReto1 - numReto2;
+                retoLabel.setText(nombre_casilla);
+                textoReto.setText(numReto1 + " " + "-" + " " + numReto2);
+            }
+            if (nombre_casilla.equals("Reto4")) {
+                numReto1 = fn.randomReto();
+                numReto2 = fn.randomReto();
+                resultado = numReto1 / numReto2;
+                retoLabel.setText(nombre_casilla);
+                textoReto.setText(numReto1 + " " + "/" + " " + numReto2);
+            }
+            if (nombre_casilla.equals("Reto5")) {
+                numReto1 = fn.randomReto();
+                numReto2 = fn.randomReto();
+                resultado = numReto1 * numReto2;
+                retoLabel.setText(nombre_casilla);
+                textoReto.setText(numReto1 + " " + "*" + " " + numReto2);
+            }
+            if (nombre_casilla.equals("Reto6")) {
+                numReto1 = fn.randomReto();
+                numReto2 = fn.randomReto();
+                resultado = numReto1 / numReto2;
+                retoLabel.setText(nombre_casilla);
+                textoReto.setText(numReto1 + " " + "/" + " " + numReto2);
+            }
+            if (nombre_casilla.equals("Reto7")) {
+                numReto1 = fn.randomReto();
+                numReto2 = fn.randomReto();
+                resultado = numReto1 - numReto2;
+                retoLabel.setText(nombre_casilla);
+                textoReto.setText(numReto1 + " " + "-" + " " + numReto2);
+            }
+
+
+            //imprime la casilla en la que estoy
+            label_tipo_casilla.setText(nombre_casilla);
+
+        } else if (num_jugador == 1) {
+            num_jugador--;
+
+            if (pase == 0) {
+                //Solo sucede la primera vez
+                indice_jugador2 = num_lanzado - 1;
+                pase++;
+
+                //Funcion para el movimiento
+                Movimiento_Rojo(indice_jugador2);
+
+
+            } else {
+
+                System.out.println("Lanzo el jugador 2");
+
+                if (indice_jugador2 + num_lanzado > 13) {
+                    indice_jugador2 = 13;
+                    rojo_9.setVisible(false);
+                    rojo_10.setVisible(false);
+                    rojo_11.setVisible(false);
+                    rojo_12.setVisible(false);
+                    rojo_13.setVisible(false);
+                    rojo_final.setVisible(true);
+                    labelGanador.setText("Felicidades jugador Rojo");
+                    labelGanador.setVisible(true);
+                } else {
+                    //Suma de la variable normal
+                    if (indice_jugador2 + num_lanzado < 0) {
+                        indice_jugador2 = 0;
+                        rojo_inicio.setVisible(false);
+                        rojo_0.setVisible(true);
+                        rojo_1.setVisible(false);
+                        rojo_2.setVisible(false);
+                    } else {
+                        indice_jugador2 = indice_jugador2 + (num_lanzado);
+
+                        //Funcion para el movimiento
+                        Movimiento_Rojo(indice_jugador2);
+                    }
+                }
+            }
+
+
+            nombre_casilla1 = tablero.get(indice_jugador2);
+            System.out.println(nombre_casilla1);
+
+            //Validacion de las trampas
+            if (nombre_casilla1.equals("Trampa")) {
+                //Se habilita el boton de trampa
+                //btn_trampa.setVisible(true);
+                pase_Trampa = 1;
+                num_lanzado = -3;
+                num_jugador = 1;
+                flagTrampa1 = 1;
+                lanzarDados(actionEvent);
+
+
+
+
+            }
+            //Validacion del tunel
+            if (nombre_casilla1.equals("Tunel")) {
+                numTunel = fn.randomTunel();
+                if (indice_jugador2 + numTunel < 13) {
+                    //Se habilita el boton de trampa
+                    //btn_trampa.setVisible(true);
+                    pase_Trampa = 1;
+                    num_lanzado = numTunel;
+                    num_jugador = 1;
+                    lanzarDados(actionEvent);
+
+                } else {
+                    indice_jugador2 = 13;
+                    rojo_9.setVisible(false);
+                    rojo_10.setVisible(false);
+                    rojo_11.setVisible(false);
+                    rojo_12.setVisible(false);
+                    rojo_13.setVisible(false);
+                    rojo_final.setVisible(true);
+
+
+                }
+
+            }
+            if (nombre_casilla1.equals("Reto1")) {
+                numReto1 = fn.randomReto();
+                numReto2 = fn.randomReto();
+                resultado = numReto1 * numReto2;
+                retoLabel.setText(nombre_casilla);
+                textoReto.setText(numReto1 + " " + "*" + " " + numReto2);
+
+            }
+            if (nombre_casilla1.equals("Reto2")) {
+                numReto1 = fn.randomReto();
+                numReto2 = fn.randomReto();
+                resultado = numReto1 + numReto2;
+                retoLabel.setText(nombre_casilla);
+                textoReto.setText(numReto1 + " " + "+" + " " + numReto2);
+            }
+            if (nombre_casilla1.equals("Reto3")) {
+                numReto1 = fn.randomReto();
+                numReto2 = fn.randomReto();
+                resultado = numReto1 - numReto2;
+                retoLabel.setText(nombre_casilla);
+                textoReto.setText(numReto1 + " " + "-" + " " + numReto2);
+            }
+            if (nombre_casilla1.equals("Reto4")) {
+                numReto1 = fn.randomReto();
+                numReto2 = fn.randomReto();
+                resultado = numReto1 / numReto2;
+                retoLabel.setText(nombre_casilla);
+                textoReto.setText(numReto1 + " " + "/" + " " + numReto2);
+            }
+            if (nombre_casilla1.equals("Reto5")) {
+                numReto1 = fn.randomReto();
+                numReto2 = fn.randomReto();
+                resultado = numReto1 * numReto2;
+                retoLabel.setText(nombre_casilla);
+                textoReto.setText(numReto1 + " " + "*" + " " + numReto2);
+            }
+            if (nombre_casilla1.equals("Reto6")) {
+                numReto1 = fn.randomReto();
+                numReto2 = fn.randomReto();
+                resultado = numReto1 / numReto2;
+                retoLabel.setText(nombre_casilla);
+                textoReto.setText(numReto1 + " " + "/" + " " + numReto2);
+            }
+            if (nombre_casilla1.equals("Reto7")) {
+                numReto1 = fn.randomReto();
+                numReto2 = fn.randomReto();
+                resultado = numReto1 - numReto2;
+                retoLabel.setText(nombre_casilla);
+                textoReto.setText(numReto1 + " " + "-" + " " + numReto2);
+            }
+
+        }
+    }
+
+    public void confirmarRespuesta(javafx.event.ActionEvent actionEvent) throws InterruptedException {
+        if (resultado == Integer.parseInt(respuesta.getText())){
+            resultadoReto.setText("Respuesta Correcta");
+        }else{
+            pase_Trampa = 1;
+            num_lanzado = -1;
+            num_jugador = 0;
+            lanzarDados(actionEvent);
+            resultadoReto.setText("Devuelvase un espacio");
+
+        }
+    }
+//Region Movimiento
+
     @FXML
     public void Movimiento_Azul(int indice_jugador1){
 
@@ -591,6 +901,7 @@ public class MainController implements SupervisorListener, GameStateListener {
             //azul_final.setVisible(false);
         }
     }
+    //Para el movimiento del punto rojo
     @FXML
     public void Movimiento_Rojo(int indice_jugador2){
 
@@ -671,7 +982,7 @@ public class MainController implements SupervisorListener, GameStateListener {
             rojo_13.setVisible(false);
             //rojo_final.setVisible(false);
         }
-        if (indice_jugador1 == 4){
+        if (indice_jugador2 == 4){
             rojo_inicio.setVisible(false);
             rojo_0.setVisible(false);
             rojo_1.setVisible(false);
@@ -864,325 +1175,5 @@ public class MainController implements SupervisorListener, GameStateListener {
             //rojo_final.setVisible(false);
         }
     }
-
-    @FXML
-    public void lanzarDados(javafx.event.ActionEvent actionEvent) throws InterruptedException {
-        if (pase_Trampa == 0) {
-            System.out.println("Lanzamiento de Dado");
-            num_lanzado = fn.Lanzar_Dado(); //Hace funcionar el dado
-            label.setText(num_lanzado + " " + "casillas");
-            System.out.println(num_lanzado);
-        }
-
-        //solo valida la vuelta
-        if (pase_Trampa == 1) {
-            pase_Trampa = 0;
-        }
-
-        //solo para esta funcion
-        //Ejemplo cuando le da un jugador y luego el otro
-        //cambio de variables
-        //indice donde se posiciona
-
-        if (num_jugador == 0) {
-            num_jugador++;
-
-            //****************
-            if (pase == 0) {
-                //Solo sucede la primera vez
-                indice_jugador1 = num_lanzado - 1;
-                pase++;
-
-                //Funcion para el movimiento
-                Movimiento_Azul(indice_jugador1);
-
-
-            } else {
-                // Validacion si el mayor a los numeros en lista
-                if (indice_jugador1 + num_lanzado > 13) {
-                    indice_jugador1 = 13;
-                    azul_9.setVisible(false);
-                    azul_10.setVisible(false);
-                    azul_11.setVisible(false);
-                    azul_12.setVisible(false);
-                    azul_13.setVisible(false);
-                    azul_final.setVisible(true);
-                } else {
-                    //Suma de la variable normal
-                    if (indice_jugador1 + num_lanzado < 0) {
-                        indice_jugador1 = 0;
-                        azul_inicio.setVisible(false);
-                        azul_0.setVisible(true);
-                        azul_1.setVisible(false);
-                        azul_2.setVisible(false);
-                    } else {
-                        indice_jugador1 = indice_jugador1 + (num_lanzado);
-
-                        //Funcion para el movimiento
-                        Movimiento_Azul(indice_jugador1);
-                    }
-                }
-            }
-
-            System.out.println("Lanzo el jugador 1");
-            //label_jugador.setText("Jugador 1");
-            //label_jugador.setStyle("-fx-background-color: Blue");
-            nombre_casilla = tablero.get(indice_jugador1);
-            System.out.println(nombre_casilla);
-
-            //Validacion de las trampas
-            if (nombre_casilla.equals("Trampa")) {
-                if (flagTrampa == 1) {
-                    flagTrampa = 0;
-                    lanzarDados(actionEvent);
-
-                } else {
-                    //Se habilita el boton de trampa
-                    //btn_trampa.setVisible(true);
-                    pase_Trampa = 1;
-                    num_lanzado = -3;
-                    num_jugador = 0;
-                    flagTrampa = 1;
-                    lanzarDados(actionEvent);
-                    btn_trampa.setVisible(false);
-                    System.out.println("**");
-                    System.out.println("Flag Trampa" + flagTrampa);
-
-                }
-
-            }
-            //Validacion del tunel
-            if (nombre_casilla.equals("Tunel")) {
-                numTunel = fn.randomTunel();
-                if (indice_jugador1 + numTunel < 13) {
-                    //Se habilita el boton de trampa
-                    //btn_trampa.setVisible(true);
-                    pase_Trampa = 1;
-                    num_lanzado = numTunel;
-                    num_jugador = 0;
-                    lanzarDados(actionEvent);
-                    System.out.println("**");
-                } else {
-                    indice_jugador1 = 13;
-                    azul_9.setVisible(false);
-                    azul_10.setVisible(false);
-                    azul_11.setVisible(false);
-                    azul_12.setVisible(false);
-                    azul_13.setVisible(false);
-                    azul_final.setVisible(true);
-
-                }
-
-            }
-            if (nombre_casilla.equals("Reto1")) {
-                numReto1 = fn.randomReto();
-                numReto2 = fn.randomReto();
-                resultado = numReto1 * numReto2;
-                retoLabel.setText(nombre_casilla);
-                textoReto.setText(numReto1 + " " + "*" + " " + numReto2);
-
-            }
-            if (nombre_casilla.equals("Reto2")) {
-                numReto1 = fn.randomReto();
-                numReto2 = fn.randomReto();
-                resultado = numReto1 + numReto2;
-                retoLabel.setText(nombre_casilla);
-                textoReto.setText(numReto1 + " " + "+" + " " + numReto2);
-            }
-            if (nombre_casilla.equals("Reto3")) {
-                numReto1 = fn.randomReto();
-                numReto2 = fn.randomReto();
-                resultado = numReto1 - numReto2;
-                retoLabel.setText(nombre_casilla);
-                textoReto.setText(numReto1 + " " + "-" + " " + numReto2);
-            }
-            if (nombre_casilla.equals("Reto4")) {
-                numReto1 = fn.randomReto();
-                numReto2 = fn.randomReto();
-                resultado = numReto1 / numReto2;
-                retoLabel.setText(nombre_casilla);
-                textoReto.setText(numReto1 + " " + "/" + " " + numReto2);
-            }
-            if (nombre_casilla.equals("Reto5")) {
-                numReto1 = fn.randomReto();
-                numReto2 = fn.randomReto();
-                resultado = numReto1 * numReto2;
-                retoLabel.setText(nombre_casilla);
-                textoReto.setText(numReto1 + " " + "*" + " " + numReto2);
-            }
-            if (nombre_casilla.equals("Reto6")) {
-                numReto1 = fn.randomReto();
-                numReto2 = fn.randomReto();
-                resultado = numReto1 / numReto2;
-                retoLabel.setText(nombre_casilla);
-                textoReto.setText(numReto1 + " " + "/" + " " + numReto2);
-            }
-            if (nombre_casilla.equals("Reto7")) {
-                numReto1 = fn.randomReto();
-                numReto2 = fn.randomReto();
-                resultado = numReto1 - numReto2;
-                retoLabel.setText(nombre_casilla);
-                textoReto.setText(numReto1 + " " + "-" + " " + numReto2);
-            }
-
-
-            //imprime la casilla en la que estoy
-            label_tipo_casilla.setText(nombre_casilla);
-
-        } else if (num_jugador == 1) {
-            num_jugador--;
-            if (pase == 0) {
-                //Solo sucede la primera vez
-                indice_jugador1 = num_lanzado - 1;
-                pase++;
-
-                //Funcion para el movimiento
-                Movimiento_Azul(indice_jugador1);
-
-
-            } else {
-
-                System.out.println("Lanzo el jugador 2");
-
-                System.out.println(tablero.get(num_lanzado - 1));
-                if (indice_jugador2 + num_lanzado > 13) {
-                    indice_jugador2 = 13;
-                    rojo_9.setVisible(false);
-                    rojo_10.setVisible(false);
-                    rojo_11.setVisible(false);
-                    rojo_12.setVisible(false);
-                    rojo_13.setVisible(false);
-                    rojo_final.setVisible(true);
-                } else {
-                    //Suma de la variable normal
-                    if (indice_jugador2 + num_lanzado < 0) {
-                        indice_jugador2 = 0;
-                        rojo_inicio.setVisible(false);
-                        rojo_0.setVisible(true);
-                        rojo_1.setVisible(false);
-                        rojo_2.setVisible(false);
-                    } else {
-                        indice_jugador2 = indice_jugador2 + (num_lanzado);
-
-                        //Funcion para el movimiento
-                        Movimiento_Rojo(indice_jugador2);
-                    }
-                }
-            }
-
-            System.out.println("Lanzo el jugador 2");
-            nombre_casilla = tablero.get(indice_jugador2);
-            System.out.println(nombre_casilla);
-
-            //Validacion de las trampas
-            if (nombre_casilla.equals("Trampa")) {
-                if (flagTrampa == 1) {
-                    flagTrampa = 0;
-                    lanzarDados(actionEvent);
-
-                } else {
-                    //Se habilita el boton de trampa
-                    //btn_trampa.setVisible(true);
-                    pase_Trampa = 1;
-                    num_lanzado = -3;
-                    num_jugador = 1;
-                    flagTrampa = 1;
-                    lanzarDados(actionEvent);
-                    btn_trampa.setVisible(false);
-                    System.out.println("**");
-                    System.out.println("Flag Trampa" + flagTrampa);
-
-                }
-
-            }
-            //Validacion del tunel
-            if (nombre_casilla.equals("Tunel")) {
-                numTunel = fn.randomTunel();
-                if (indice_jugador2 + numTunel < 13) {
-                    //Se habilita el boton de trampa
-                    //btn_trampa.setVisible(true);
-                    pase_Trampa = 1;
-                    num_lanzado = numTunel;
-                    num_jugador = 1;
-                    lanzarDados(actionEvent);
-                    System.out.println("**");
-                } else {
-                    indice_jugador2 = 13;
-                    rojo_9.setVisible(false);
-                    rojo_10.setVisible(false);
-                    rojo_11.setVisible(false);
-                    rojo_12.setVisible(false);
-                    rojo_13.setVisible(false);
-                    rojo_final.setVisible(true);
-
-                }
-
-            }
-            if (nombre_casilla.equals("Reto1")) {
-                numReto1 = fn.randomReto();
-                numReto2 = fn.randomReto();
-                resultado = numReto1 * numReto2;
-                retoLabel.setText(nombre_casilla);
-                textoReto.setText(numReto1 + " " + "*" + " " + numReto2);
-
-            }
-            if (nombre_casilla.equals("Reto2")) {
-                numReto1 = fn.randomReto();
-                numReto2 = fn.randomReto();
-                resultado = numReto1 + numReto2;
-                retoLabel.setText(nombre_casilla);
-                textoReto.setText(numReto1 + " " + "+" + " " + numReto2);
-            }
-            if (nombre_casilla.equals("Reto3")) {
-                numReto1 = fn.randomReto();
-                numReto2 = fn.randomReto();
-                resultado = numReto1 - numReto2;
-                retoLabel.setText(nombre_casilla);
-                textoReto.setText(numReto1 + " " + "-" + " " + numReto2);
-            }
-            if (nombre_casilla.equals("Reto4")) {
-                numReto1 = fn.randomReto();
-                numReto2 = fn.randomReto();
-                resultado = numReto1 / numReto2;
-                retoLabel.setText(nombre_casilla);
-                textoReto.setText(numReto1 + " " + "/" + " " + numReto2);
-            }
-            if (nombre_casilla.equals("Reto5")) {
-                numReto1 = fn.randomReto();
-                numReto2 = fn.randomReto();
-                resultado = numReto1 * numReto2;
-                retoLabel.setText(nombre_casilla);
-                textoReto.setText(numReto1 + " " + "*" + " " + numReto2);
-            }
-            if (nombre_casilla.equals("Reto6")) {
-                numReto1 = fn.randomReto();
-                numReto2 = fn.randomReto();
-                resultado = numReto1 / numReto2;
-                retoLabel.setText(nombre_casilla);
-                textoReto.setText(numReto1 + " " + "/" + " " + numReto2);
-            }
-            if (nombre_casilla.equals("Reto7")) {
-                numReto1 = fn.randomReto();
-                numReto2 = fn.randomReto();
-                resultado = numReto1 - numReto2;
-                retoLabel.setText(nombre_casilla);
-                textoReto.setText(numReto1 + " " + "-" + " " + numReto2);
-            }
-
-        }
-    }
-
-    public void confirmarRespuesta(javafx.event.ActionEvent actionEvent) throws InterruptedException {
-        if (resultado == Integer.parseInt(respuesta.getText())){
-            resultadoReto.setText("Respuesta Correcta");
-        }else{
-            pase_Trampa = 1;
-            num_lanzado = -1;
-            num_jugador = 0;
-            lanzarDados(actionEvent);
-            resultadoReto.setText("Devuelvase un espacio");
-
-        }
-    }
-
+    //End Region
 }
