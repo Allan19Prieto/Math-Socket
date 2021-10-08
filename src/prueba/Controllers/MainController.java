@@ -1,6 +1,5 @@
 package prueba.Controllers;
 
-import MathSocket.Funciones;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -88,6 +87,8 @@ public class MainController implements SupervisorListener, GameStateListener {
     int pase = 0;
     int num_lanzado = 0;
     int num_jugador = 0;
+
+    int flagTrampa = 0;
 
     int indice_jugador1 = 0;
 
@@ -629,19 +630,45 @@ public class MainController implements SupervisorListener, GameStateListener {
 
             //Validacion de las trampas
             if (nombre_casilla.equals("Trampa")){
-                //Se habilita el boton de trampa
-                //btn_trampa.setVisible(true);
-                pase_Trampa = 1;
-                num_lanzado = -3;
-                num_jugador = 0;
-                lanzarDados(actionEvent);
-                btn_trampa.setVisible(false);
-                System.out.println("**");
+                if (flagTrampa == 1) {
+                    flagTrampa = 0;
+                    lanzarDados(actionEvent);
+
+                }else{
+                    //Se habilita el boton de trampa
+                    //btn_trampa.setVisible(true);
+                    pase_Trampa = 1;
+                    num_lanzado = -3;
+                    num_jugador = 0;
+                    flagTrampa = 1;
+                    lanzarDados(actionEvent);
+                    btn_trampa.setVisible(false);
+                    System.out.println("**");
+                    System.out.println("Flag Trampa" + flagTrampa);
+
+                }
 
             }
+            /*//Validacion del tunel
+            if (nombre_casilla.equals("Tunel")){
+                if (flagTrampa == 0) {
+                    //Se habilita el boton de trampa
+                    //btn_trampa.setVisible(true);
+                    pase_Trampa = 1;
+                    num_lanzado = -3;
+                    num_jugador = 0;
+                    lanzarDados(actionEvent);
+                    btn_trampa.setVisible(false);
+                    flagTrampa = 1;
+                    System.out.println("**");
+                }else{
+                    flagTrampa = 0;
+                }
+
+            }*/
 
 
-            //implrime la casilla en la que estoy
+            //imprime la casilla en la que estoy
             label_tipo_casilla.setText(nombre_casilla);
 
         }else if (num_jugador == 1){

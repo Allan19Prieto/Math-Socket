@@ -9,10 +9,12 @@ public class Funciones implements Initializable {
 
 
     // Aleatorio para lanzar el dado
-    public static int Lanzar_Dado(){ return (int)(Math.random()*4+1); }
+    public static int Lanzar_Dado(){ return (int)(Math.random()*1+1); }
 
     //Aleatorio para llenar el tablero
     public static int Ram() { return (int)(Math.random()*14+0); }
+
+    public static int randomTunel(){return (int)(Math.random()*3*1); }
 
 
     @Override
