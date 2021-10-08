@@ -87,6 +87,7 @@ public class MainController implements SupervisorListener, GameStateListener {
     int pase = 0;
     int num_lanzado = 0;
     int num_jugador = 0;
+    int numTunel = 0;
 
     int flagTrampa = 0;
 
@@ -649,23 +650,29 @@ public class MainController implements SupervisorListener, GameStateListener {
                 }
 
             }
-            /*//Validacion del tunel
+            //Validacion del tunel
             if (nombre_casilla.equals("Tunel")){
-                if (flagTrampa == 0) {
+                numTunel = fn.randomTunel();
+                if (indice_jugador1 + numTunel < 13) {
                     //Se habilita el boton de trampa
                     //btn_trampa.setVisible(true);
                     pase_Trampa = 1;
-                    num_lanzado = -3;
+                    num_lanzado = numTunel;
                     num_jugador = 0;
                     lanzarDados(actionEvent);
-                    btn_trampa.setVisible(false);
-                    flagTrampa = 1;
                     System.out.println("**");
                 }else{
-                    flagTrampa = 0;
+                    indice_jugador1 = 13;
+                    azul_9.setVisible(false);
+                    azul_10.setVisible(false);
+                    azul_11.setVisible(false);
+                    azul_12.setVisible(false);
+                    azul_13.setVisible(false);
+                    azul_final.setVisible(true);
+
                 }
 
-            }*/
+            }
 
 
             //imprime la casilla en la que estoy
