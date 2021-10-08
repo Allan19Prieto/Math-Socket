@@ -105,6 +105,7 @@ public class MainController implements SupervisorListener, GameStateListener {
 
     //cuando cae en trampa
     int pase_Trampa = 0;
+
     //Solo par ala primera vuelta de sumado el indice del jugador 1
     int pase = 0;
     int num_lanzado = 0;
@@ -127,6 +128,7 @@ public class MainController implements SupervisorListener, GameStateListener {
 
         this.game = new Game();
         this.state = new GameState(this);
+        //Asignamos la clave al jugador
         this.playerActions = new HashMap<>();
         this.peersAmount = 0;
 
@@ -164,7 +166,7 @@ public class MainController implements SupervisorListener, GameStateListener {
 
     }
 
-    // Called when the peer connect button is clicked
+    // Conectamos cada peer cuando damos click
     public void connectPeer(ActionEvent actionEvent) {
         int port = Integer.parseInt(peerPort.getText());
         String host = peerHost.getText();
@@ -297,8 +299,127 @@ public class MainController implements SupervisorListener, GameStateListener {
                 tablero.add(palabras[var]);
             }
         }
+        Mostrar_Tablero();
+    }
 
-        System.out.println("Revisando pase");
+    @FXML
+    public void lanzarDados(javafx.event.ActionEvent actionEvent) throws InterruptedException {
+        if (pase_Trampa == 0) {
+            System.out.println("Lanzamiento de Dado");
+            num_lanzado = fn.Lanzar_Dado(); //Hace funcionar el dado
+            label.setText(num_lanzado +" " + "casillas");
+            System.out.println(num_lanzado);
+        }
+
+        //solo valida la vuelta
+        if (pase_Trampa == 1){
+            pase_Trampa = 0;
+        }
+
+        //solo para esta funcion
+        //Ejemplo cuando le da un jugador y luego el otro
+        //cambio de variables
+        //indice donde se posiciona
+
+        if (num_jugador == 0){
+            num_jugador++;
+
+            //****************
+            if (pase == 0){
+                //Solo sucede la primera vez
+                indice_jugador1 = num_lanzado - 1;
+                pase ++;
+
+                //Funcion para el movimiento
+                Movimiento_Azul(indice_jugador1);
+
+            }else {
+                // Validacion si el mayor a los numeros en lista
+                if (indice_jugador1 + num_lanzado > 13){
+                    indice_jugador1 = 13;
+                    azul_9.setVisible(false);
+                    azul_10.setVisible(false);
+                    azul_11.setVisible(false);
+                    azul_12.setVisible(false);
+                    azul_13.setVisible(false);
+                    azul_final.setVisible(true);
+                }else {
+                    //Suma de la variable normal
+                    if (indice_jugador1 + num_lanzado < 0){
+                        indice_jugador1 = 0;
+                        azul_inicio.setVisible(true);
+                        azul_0.setVisible(false);
+                        azul_1.setVisible(false);
+                        azul_2.setVisible(false);
+                    }else {
+                        indice_jugador1 = indice_jugador1 + (num_lanzado);
+
+                        //Funcion para el movimiento
+                        Movimiento_Azul(indice_jugador1);
+                    }
+                }
+            }
+
+            System.out.println("Lanzo el jugador 1");
+            //label_jugador.setText("Jugador 1");
+            //label_jugador.setStyle("-fx-background-color: Blue");
+            nombre_casilla = tablero.get(indice_jugador1);
+            System.out.println(nombre_casilla);
+
+            //Validacion de las trampas
+            if (nombre_casilla.equals("Trampa")){
+                if (flagTrampa == 1) {
+                    flagTrampa = 0;
+                    lanzarDados(actionEvent);
+
+                }else{
+                    //Se habilita el boton de trampa
+                    //btn_trampa.setVisible(true);
+                    pase_Trampa = 1;
+                    num_lanzado = -3;
+                    num_jugador = 0;
+                    flagTrampa = 1;
+                    lanzarDados(actionEvent);
+                    btn_trampa.setVisible(false);
+                    System.out.println("**");
+                    System.out.println("Flag Trampa" + flagTrampa);
+
+                }
+
+            }
+            /*//Validacion del tunel
+            if (nombre_casilla.equals("Tunel")){
+                if (flagTrampa == 0) {
+                    //Se habilita el boton de trampa
+                    //btn_trampa.setVisible(true);
+                    pase_Trampa = 1;
+                    num_lanzado = -3;
+                    num_jugador = 0;
+                    lanzarDados(actionEvent);
+                    btn_trampa.setVisible(false);
+                    flagTrampa = 1;
+                    System.out.println("**");
+                }else{
+                    flagTrampa = 0;
+                }
+
+            }*/
+
+
+            //imprime la casilla en la que estoy
+            label_tipo_casilla.setText(nombre_casilla);
+
+        }else if (num_jugador == 1){
+            num_jugador --;
+            System.out.println("Lanzo el jugador 2");
+            //label_jugador.setText("Jugador 2");
+            //label_jugador.setStyle("-fx-background-color: Red");
+            System.out.println(tablero.get(num_lanzado-1));
+        }
+
+    }
+
+    public void  Mostrar_Tablero(){
         //Mostar en el tablero los palabras
         btn_1.setText(tablero.get(0));
         btn_2.setText(tablero.get(1));
@@ -317,8 +438,6 @@ public class MainController implements SupervisorListener, GameStateListener {
 
         Tablero.setVisible(true);
     }
-
-
 
     @FXML
     public void lanzarDados(javafx.event.ActionEvent actionEvent) throws InterruptedException {
@@ -628,6 +747,8 @@ public class MainController implements SupervisorListener, GameStateListener {
     }
 //Region Movimiento
 
+    //Para el movimiento del punto azul
+
     @FXML
     public void Movimiento_Azul(int indice_jugador1){
 
@@ -901,6 +1022,7 @@ public class MainController implements SupervisorListener, GameStateListener {
             //azul_final.setVisible(false);
         }
     }
+
     //Para el movimiento del punto rojo
     @FXML
     public void Movimiento_Rojo(int indice_jugador2){

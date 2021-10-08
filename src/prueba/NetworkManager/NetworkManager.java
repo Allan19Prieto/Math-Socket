@@ -20,7 +20,9 @@ public class NetworkManager {
     private PeerServer peerServer;
 
     public NetworkManager(int port, String serverName, SupervisorListener listener) {
+        //Creamos un string para el identificador
         this.id = UUID.randomUUID().toString();
+        //Si el serverName esta vacio, se le asigna un id
         if (serverName == null) {
             serverName = id;
         }
@@ -29,15 +31,17 @@ public class NetworkManager {
         this.listener = listener;
     }
 
+    //Iniciamos el serverSocket con el puerto asignado.
     public void setupServer() throws IOException {
-        System.out.println("Setting up server capabilities for peer:" + id);
+        System.out.println("Setting up server capabilities for peer: " + id);
         serverSocket = new ServerSocket(port);
     }
 
+    //Metodo para iniciar el hilo enviando los datos el id
     public void startNetworking() {
         supervisor = new Supervisor(listener, id);
         peerServer = new PeerServer(serverSocket, serverName, supervisor);
-        System.out.println("Starting peer server thread for peer:" + id);
+        System.out.println("Starting peer server thread for peer: " + id);
         peerServer.startAsThread();
     }
 
@@ -64,4 +68,5 @@ public class NetworkManager {
     public String getId() {
         return id;
     }
+
 }
